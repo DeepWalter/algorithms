@@ -2,12 +2,12 @@ package algorithms;
 
 /**
  *
- * @param <Item>
+ * @param <E>
  */
-public interface Stack<Item> extends Iterable<Item>
+public interface Stack<E> extends Iterable<E>
 {
-    void push(Item item);
-    Item pop();
+    void push(E elem);
+    E pop();
     boolean isEmpty();
     int size();
 }

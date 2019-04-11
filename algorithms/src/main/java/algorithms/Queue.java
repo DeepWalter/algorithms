@@ -1,10 +1,10 @@
 package algorithms;
 
 
-public interface Queue<Item> extends Iterable<Item>
+public interface Queue<E> extends Iterable<E>
 {
-    void enqueue(Item item);
-    Item dequeue();
+    void enqueue(E elem);
+    E dequeue();
     boolean isEmpty();
     int size();
 }

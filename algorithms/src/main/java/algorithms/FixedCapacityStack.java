@@ -3,15 +3,15 @@ package algorithms;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class FixedCapacityStack<Item> implements Stack<Item>
+public class FixedCapacityStack<E> implements Stack<E>
 {
-    private Item[] a ;  // stack entries
+    private E[] a ;  // stack entries
     private int N = 0;  // size
 
     @SuppressWarnings("unchecked")
-    public FixedCapacityStack(int cap)
+    public FixedCapacityStack(int capacity)
     {
-        a = (Item[]) new Object[cap];
+        a = (E[]) new Object[capacity];
     }
 
     @Override
@@ -21,27 +21,27 @@ public class FixedCapacityStack<Item> implements Stack<Item>
     public int size() { return N; }
 
     @Override
-    public void push(Item item)
+    public void push(E elem)
     {
-        a[N++] = item;
+        a[N++] = elem;
     }
 
     @Override
-    public Item pop()
+    public E pop()
     {
         return a[--N];
     }
 
     @Override
-    public Iterator<Item> iterator()
+    public Iterator<E> iterator()
     {
-        return new Iterator<Item>()
+        return new Iterator<E>()
         {
             private int id = N;
 
             public boolean hasNext() { return id != 0; }
 
-            public Item next()
+            public E next()
             {
                 if (!hasNext()) throw new NoSuchElementException();
                 return a[--id];
@@ -49,17 +49,4 @@ public class FixedCapacityStack<Item> implements Stack<Item>
         };
     }
 
-    public static void main(String[] args)
-    {
-        Stack<String> strs = new FixedCapacityStack<>(10);
-        strs.push("hello");
-        strs.push("world");
-
-        System.out.println(strs.size());
-
-        // for (String str: strs) {
-        //     System.out.println(str);
-        // }
-
-    }
 }

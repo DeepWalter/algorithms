@@ -1,9 +1,12 @@
 package algorithms;
 
-
-public interface Bag<Item> extends Iterable<Item>
+/**
+ * A
+ * @param <E> Type of the element
+ */
+public interface Bag<E> extends Iterable<E>
 {
-    void add(Item item);
+    void add(E elem);
     boolean isEmpty();
     int size();
 }
