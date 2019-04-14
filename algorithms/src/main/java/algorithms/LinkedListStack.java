@@ -2,7 +2,6 @@ package algorithms;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 
 /**
@@ -34,7 +33,7 @@ public class LinkedListStack<E> implements Stack<E>
     public E pop()
     {
         if (isEmpty()) throw new NoSuchElementException(
-            "Can not pop: Stack is empty!");
+            "Can not pop an empty stack!");
 
         E elem = top.elem;
         top = top.next;

@@ -17,6 +17,8 @@ public class FixedCapacityStack<E> implements Stack<E>
     @Override
     public boolean isEmpty() { return N == 0; }
 
+    public boolean isFull() { return N == a.length; }
+
     @Override
     public int size() { return N; }
 
@@ -41,7 +43,7 @@ public class FixedCapacityStack<E> implements Stack<E>
 
             public boolean hasNext() { return id != 0; }
 
-            public E next()
+            public E next() throws NoSuchElementException
             {
                 if (!hasNext()) throw new NoSuchElementException();
                 return a[--id];
