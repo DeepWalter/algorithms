@@ -5,8 +5,8 @@ import java.util.NoSuchElementException;
 
 
 /**
- * {@code LinkedListStack} is the implementation of a pushdown {@code Stack}
- * via a linked list.
+ * {@code LinkedListStack} is an implementation of the pushdown {@link Stack}
+ * via a singly linked list.
  *
  * @param <E> the type of elements in {@code LinkedListStack}
  *
