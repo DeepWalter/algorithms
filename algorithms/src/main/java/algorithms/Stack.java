@@ -22,7 +22,7 @@ public interface Stack<E> extends Iterable<E>
      * Remove the element on the top of this stack and return that
      * element. After this operation, the size of this stack decreases by one.
      *
-     * @return the element on top of the stack
+     * @return the element on the top of the stack
      */
     E pop();
 
