@@ -58,7 +58,7 @@ public class QuickFindUF implements UF
      * {@code 0 <= q < n}
      */
     @Override
-    public void union(int p, int q)
+    public void union(int p, int q) throws IllegalArgumentException
     {
         int pId = find(p);
         int qId = find(q);
