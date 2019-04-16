@@ -33,7 +33,9 @@ package algorithms;
  * </p>
  *
  * @author DeepWalter
+ *
  * @see UF
+ * @see QuickUnionUF
  */
 public class QuickFindUF implements UF
 {
