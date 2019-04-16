@@ -15,11 +15,11 @@ package algorithms;
  * The <em>is-connected-to</em> is an equivalence relation (denoted as ~)
  * between two objects, namely it is:
  * <ul>
- *   <li>Reflexive: for all object <em>p</em>, <em>p ~ p</em>.
+ *   <li>Reflexive: for all object <em>p</em>, <em>p ~ p</em>.</li>
  *   <li>Symmetric: for all objects <em>p</em> and <em>q</em>, <em>p ~ q</em>
- * implies <em>q ~ p</em>.
+ * implies <em>q ~ p</em>.</li>
  *   <li>Transitive: for all objects <em>p</em>, <em>q</em>, and <em>r</em>,
- * <em>p ~ q</em> and <em>q ~ r</em> implies <em>p ~ r</em>.
+ * <em>p ~ q</em> and <em>q ~ r</em> implies <em>p ~ r</em>.</li>
  * </ul>
  * The above equivalence relation partitions the set into equivalence classes.
  * Any two objects in the same equivalence class is connected. Hence an
