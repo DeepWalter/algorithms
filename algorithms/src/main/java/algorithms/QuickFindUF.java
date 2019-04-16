@@ -4,11 +4,40 @@ package algorithms;
 /**
  * The {@code QuickFindUF} class is an implementation of the {@link UF}
  * interface with constant time operation {@link UF#find(int)} (hence the name
- * quick find).
+ * <em>quick find</em>).
+ *
+ * <p>
+ * In accordance with the specification of {@link UF} interface, the set of
+ * <em>n</em> objects are represented as integers from 1 to <em>n - 1</em> and
+ * each component is identified by an integer between 1 and <em>n - 1</em>.
+ * </p>
+ *
+ * <p>The implementation of {@code QuickFindUF} uses an {@code int} array to
+ * store the <em>component identifier</em> of each object. The component
+ * identifier of an object is the identifier of the component to which the
+ * object belongs. Two objects are in the same component iff they have the same
+ * component identifier. Initially, each object is in its own component. That
+ * is, object <em>i</em> has a component identifier <em>i</em>. The
+ * implementation also stores the number of components in an {@code int}
+ * variable.
+ * <ul>
+ *   <li>{@code find(p)} returns the component identifier of {@code p}. Time
+ * complexity: {@code O(1)}.</li>
+ *   <li>{@code union(p, q)} changes those component identifiers which equal to
+ * the component identifier of {@code p} into the component identifier of
+ * {@code q} and then decreases the number of components by one. Time
+ * complexity: {@code O(n)}.</li>
+ * </ul>
+ *
+ * For more information, see Section 1.5 of <i>Algorithms, 4th Edition</i>.
+ * </p>
+ *
+ * @author DeepWalter
+ * @see UF
  */
 public class QuickFindUF implements UF
 {
-    private int[] id;   // component id array
+    private int[] id;   // component identifier array
     private int count;   // number of components
 
     /**
@@ -34,6 +63,9 @@ public class QuickFindUF implements UF
     public int count() { return count; }
 
     /**
+     * Find the component identifier of {@code p}. {@code p} should be in
+     * range {@code [0, n - 1]}, here {@code n} is the total number of objects.
+     *
      * @param p the integer index of an object
      * @throws IllegalArgumentException unless {@code 0 <= p < n}
      */
