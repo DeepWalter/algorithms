@@ -68,7 +68,7 @@ public class Selection
 
 
     // Swap array[i] with array[j].
-    private static <T extends Comparable<T>> void swap(T[] array, int i, int j)
+    private static <T> void swap(T[] array, int i, int j)
     {
         T temp = array[i];
         array[i] = array[j];
