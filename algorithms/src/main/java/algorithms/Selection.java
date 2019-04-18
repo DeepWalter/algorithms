@@ -36,7 +36,7 @@ public class Selection
      * @param <T> the type of {@code array} elements
      * @param array the array to be sorted
      */
-    public static <T extends Comparable<T>> void sort(T[] array)
+    public static <T extends Comparable<? super T>> void sort(T[] array)
     {
         int N = array.length;
         for (int i = 0; i < N; i++) {
@@ -58,7 +58,7 @@ public class Selection
      * @return {@code true} if {@code array} is sorted in ascending order;
      * {@code false} otherwise
      */
-    public static <T extends Comparable<T>> boolean isSorted(T[] array)
+    public static <T extends Comparable<? super T>> boolean isSorted(T[] array)
     {
         for (int i = 1; i < array.length; i++) {
             if (less(array[i], array[i - 1])) return false;
@@ -76,7 +76,7 @@ public class Selection
     }
 
     // Test if a is strictly less than b.
-    private static <T extends Comparable<T>> boolean less(T a, T b)
+    private static <T extends Comparable<? super T>> boolean less(T a, T b)
     {
         return a.compareTo(b) < 0;
     }
