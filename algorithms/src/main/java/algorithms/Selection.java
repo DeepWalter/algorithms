@@ -3,14 +3,12 @@ package algorithms;
 
 /**
  * The {@code Selection} class implements the selection sort alogrithm. It
- * provides two methods for arrays of generic types:
+ * provides two methods:
  * <ol>
  *   <li>{@code sort(array)} sorts the {@code array} in ascending order.</li>
  *   <li>{@code isSorted(array)} tests if the {@code array} is sorted in
  * ascending order.</li>
  * </ol>
- * In addition to the generic {@code sort} and {@code isSorted} methods, we
- * also provide those methods for {@code int} and {@code double} arrays.
  *
  * <p>
  * The selection sort algorithm keeps the following invariant: for index
