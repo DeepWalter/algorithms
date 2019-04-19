@@ -3,12 +3,14 @@ package algorithms;
 
 /**
  * The {@code Selection} class implements the selection sort alogrithm. It
- * provides two methods:
+ * provides two methods for arrays of generic types:
  * <ol>
  *   <li>{@code sort(array)} sorts the {@code array} in ascending order.</li>
  *   <li>{@code isSorted(array)} tests if the {@code array} is sorted in
  * ascending order.</li>
  * </ol>
+ * In addition to the generic {@code sort} and {@code isSorted} methods, we
+ * also provide those methods for {@code int} and {@code double} arrays.
  *
  * <p>
  * The selection sort algorithm keeps the following invariant: for index
@@ -51,6 +53,42 @@ public class Selection
     }
 
     /**
+     * Sort {@code array} in ascending order.
+     *
+     * @param array the {@code int} array to be sorted
+     */
+    public static void sort(int[] array)
+    {
+        int N = array.length;
+        for (int i = 0; i < N; i++) {
+            int min = i;
+            for ( int j = i+1; j < N; j++) {
+                if (array[j] < array[min]) min = j;
+            }
+
+            swap(array, i, min);
+        }
+    }
+
+    /**
+     * Sort {@code array} in ascending order.
+     *
+     * @param array the {@code double} array to be sorted
+     */
+    public static void sort(double[] array)
+    {
+        int N = array.length;
+        for (int i = 0; i < N; i++) {
+            int min = i;
+            for ( int j = i+1; j < N; j++) {
+                if (array[j] < array[min]) min = j;
+            }
+
+            swap(array, i, min);
+        }
+    }
+
+    /**
      * Test if {@code array} is sorted in ascending order.
      *
      * @param <T> the type of {@code array} elements
@@ -66,11 +104,57 @@ public class Selection
         return true;
     }
 
+    /**
+     * Test if {@code array} is sorted in ascending order.
+     *
+     * @param array an {@code int} array to be tested
+     * @return {@code true} if {@code array} is sorted in ascending order;
+     * {@code false} otherwise
+     */
+    public static boolean isSorted(int[] array)
+    {
+        int N = array.length;
+        for (int i = 1; i < N; i++) {
+            if (array[i] < array[i-1]) return false;
+        }
+        return true;
+    }
+
+    /**
+     * Test if {@code array} is sorted in ascending order.
+     *
+     * @param array an {@code double} array to be tested
+     * @return {@code true} if {@code array} is sorted in ascending order;
+     * {@code false} otherwise
+     */
+    public static boolean isSorted(double[] array)
+    {
+        int N = array.length;
+        for (int i = 1; i < N; i++) {
+            if (array[i] < array[i-1]) return false;
+        }
+        return true;
+    }
+
 
     // Swap array[i] with array[j].
     private static <T> void swap(T[] array, int i, int j)
     {
         T temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    private static void swap(int[] array, int i, int j)
+    {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    private static void swap(double[] array, int i, int j)
+    {
+        double temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
