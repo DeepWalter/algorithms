@@ -19,7 +19,7 @@ public class FixedCapacityStack<E> implements Stack<E>
     public FixedCapacityStack(int capacity) throws IllegalArgumentException
     {
         if (capacity <= 0) throw new IllegalArgumentException(
-            "The capacity of the stack must be positive");
+            "Capacity must be positive: " + capacity);
         a = (E[]) new Object[capacity];
     }
 
@@ -66,5 +66,4 @@ public class FixedCapacityStack<E> implements Stack<E>
             }
         };
     }
-
 }
