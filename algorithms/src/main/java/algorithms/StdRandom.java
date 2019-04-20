@@ -62,8 +62,10 @@ public final class StdRandom
      * @param size length of the array
      * @return an array of {@code double} values that are uniformly distributed
      * in [0, 1)
+     *
+     * @see #uniform()
      */
-    public static double[] uniform(int size)
+    public static double[] uniformArray(int size)
     {
         double[] array = new double[size];
         for (int i = 0; i < size; i++) {
@@ -72,4 +74,38 @@ public final class StdRandom
 
         return array;
     }
+
+    /**
+     * Return an uniformly distributed random integer.
+     *
+     * @return an uniformly distributed random integer
+     */
+    public static int randint() { return random.nextInt(); }
+
+    /**
+     * Return an uniformly distributed random integer in {@code [0, bound)}.
+     * @param bound upper bound (exclusive)
+     * @return an uniformly distributed random integer in {@code [0, bound)}
+     */
+    public static int randint(int bound) { return random.nextInt(bound); }
+
+    /**
+     * Return an uniformly distributed random integer array.
+     *
+     * @param size length of the array
+     * @return an uniformly distributed random integer array
+     *
+     * @see #randint()
+     */
+    public static int[] randintArray(int size)
+    {
+        int[] array = new int[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = randint();
+        }
+
+        return array;
+    }
+
+
 }
