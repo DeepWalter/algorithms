@@ -28,7 +28,7 @@ package algorithms;
  *
  * @author DeepWalter
  */
-public class Selection
+public class Selection extends Sorted
 {
     /**
      * Sort {@code array} in ascending order.
@@ -85,55 +85,6 @@ public class Selection
             swap(array, i, min);
         }
     }
-
-    /**
-     * Test if {@code array} is sorted in ascending order.
-     *
-     * @param <T> the type of {@code array} elements
-     * @param array array to be tested
-     * @return {@code true} if {@code array} is sorted in ascending order;
-     * {@code false} otherwise
-     */
-    public static <T extends Comparable<? super T>> boolean isSorted(T[] array)
-    {
-        for (int i = 1; i < array.length; i++) {
-            if (less(array[i], array[i - 1])) return false;
-        }
-        return true;
-    }
-
-    /**
-     * Test if {@code array} is sorted in ascending order.
-     *
-     * @param array an {@code int} array to be tested
-     * @return {@code true} if {@code array} is sorted in ascending order;
-     * {@code false} otherwise
-     */
-    public static boolean isSorted(int[] array)
-    {
-        int N = array.length;
-        for (int i = 1; i < N; i++) {
-            if (array[i] < array[i-1]) return false;
-        }
-        return true;
-    }
-
-    /**
-     * Test if {@code array} is sorted in ascending order.
-     *
-     * @param array an {@code double} array to be tested
-     * @return {@code true} if {@code array} is sorted in ascending order;
-     * {@code false} otherwise
-     */
-    public static boolean isSorted(double[] array)
-    {
-        int N = array.length;
-        for (int i = 1; i < N; i++) {
-            if (array[i] < array[i-1]) return false;
-        }
-        return true;
-    }
-
 
     // Swap array[i] with array[j].
     private static <T> void swap(T[] array, int i, int j)
