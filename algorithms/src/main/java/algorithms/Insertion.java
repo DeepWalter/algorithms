@@ -32,8 +32,11 @@ package algorithms;
  *
  * @see Selection
  */
-public class Insertion extends Sorted
+public final class Insertion extends Sorted
 {
+    // Prevent this class from being instantiated.
+    private Insertion() {}
+
     /**
      * Sort {@code array} in ascending order.
      *

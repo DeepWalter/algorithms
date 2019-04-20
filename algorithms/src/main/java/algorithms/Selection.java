@@ -28,8 +28,11 @@ package algorithms;
  *
  * @author DeepWalter
  */
-public class Selection extends Sorted
+public final class Selection extends Sorted
 {
+    // Prevent this class from being instantiated.
+    private Selection() {}
+
     /**
      * Sort {@code array} in ascending order.
      *
