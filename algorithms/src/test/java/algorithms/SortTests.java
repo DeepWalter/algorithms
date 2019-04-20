@@ -27,7 +27,7 @@ public class SortTests
     @Parameters(name = "Test {index}: {0}")
     public static Iterable<? extends Object> data()
     {
-        return Arrays.asList("selection", "insertion");
+        return Arrays.asList("selection", "insertion", "shell");
     }
 
     @Before
@@ -70,6 +70,8 @@ public class SortTests
             case "insertion":
                 Insertion.sort(arr);
                 break;
+            case "shell":
+                Shell.sort(arr);
 
             default:
                 break;
