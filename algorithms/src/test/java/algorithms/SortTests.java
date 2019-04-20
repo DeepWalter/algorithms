@@ -15,7 +15,7 @@ public class SortTests
     @Before
     public void setUP()
     {
-        arr = StdRandom.uniform(size);
+        arr = StdRandom.uniformArray(size);
     }
 
     @After
