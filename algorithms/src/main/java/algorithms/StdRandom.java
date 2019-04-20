@@ -90,6 +90,18 @@ public final class StdRandom
     public static int randint(int bound) { return random.nextInt(bound); }
 
     /**
+     * Return an uniformly distributed random integer in {@code [low, high)}.
+     *
+     * @param low lower bound (inclusive)
+     * @param high higher bound (exclusive)
+     * @return an uniformly distributed random integer in {@code [low, high)}
+     */
+    public static int randint(int low, int high)
+    {
+        return low + randint(high - low);
+    }
+
+    /**
      * Return an uniformly distributed random integer array.
      *
      * @param size length of the array
