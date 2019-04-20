@@ -3,7 +3,7 @@ package algorithms;
 
 /**
  * The {@code QuickFindUF} class is an implementation of the {@link UF}
- * interface with constant time operation {@link UF#find(int)} (hence the name
+ * interface with constant time operation {@link #find(int)} (hence the name
  * <em>quick find</em>).
  *
  * <p>
