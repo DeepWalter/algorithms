@@ -31,6 +31,7 @@ package algorithms;
  * @author DeepWalter
  *
  * @see Selection
+ * @see Shell
  */
 public final class Insertion extends Sorted
 {
@@ -46,10 +47,20 @@ public final class Insertion extends Sorted
     public static <T extends Comparable<? super T>> void sort(T[] array)
     {
         for (int i = 1; i < array.length; i++) {
+            // for (int j = i; j > 0 && less(array[j], array[j-1]); j--) {
+            //     swap(array, j, j - 1);
+            // }
+            /* Note that array[i] is shift left to its right position through
+             * swapping. This is not necessary since we only need to find its
+             * right position first and then put it there.
+             */
             T temp = array[i];
             int j = i;
 
             while (j > 0 && less(temp, array[j-1])) {
+                /* Any element greater than temp should be moved to the right
+                 * one position.
+                 */
                 array[j] = array[j-1];
                 j--;
             }
