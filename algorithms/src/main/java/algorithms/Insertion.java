@@ -30,8 +30,8 @@ package algorithms;
  *
  * @author DeepWalter
  *
- * @see Selection
  * @see Shell
+ * @see Selection
  */
 public final class Insertion extends Sorted
 {
