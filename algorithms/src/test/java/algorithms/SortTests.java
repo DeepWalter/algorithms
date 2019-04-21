@@ -16,23 +16,35 @@ import org.junit.runners.Parameterized.Parameters;
 public class SortTests
 {
     private double[] arr;
-    private int size = 10000;
+    private final long SEED = System.currentTimeMillis();
+    private int size;
     private String alg;
 
-    public SortTests(String name)
+    public SortTests(String name, int N)
     {
         alg = name;
+        size = N;
     }
 
-    @Parameters(name = "Test {index}: {0}")
-    public static Iterable<? extends Object> data()
+    @Parameters(name = "Test {index}: {0} on {1} elements")
+    public static Iterable<Object[]> data()
     {
-        return Arrays.asList("selection", "insertion", "shell", "quick");
+        return Arrays.asList(new Object[][] {
+            {"selection", 1000},
+            {"insertion", 1000},
+            {"shell", 1000},
+            {"quick", 1000},
+            {"selection", 10000},
+            {"insertion", 10000},
+            {"shell", 10000},
+            {"quick", 10000}
+        });
     }
 
     @Before
     public void setUP()
     {
+        StdRandom.setSeed(SEED);
         arr = StdRandom.uniformArray(size);
     }
 
