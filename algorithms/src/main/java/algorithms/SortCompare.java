@@ -3,6 +3,8 @@ package algorithms;
 
 public final class SortCompare
 {
+    private static final long SEED = System.currentTimeMillis();
+
     // Prevent this class from being instantiated.
     private SortCompare() {}
 
@@ -70,6 +72,8 @@ public final class SortCompare
      */
     public static double timeRandomInput(String alg, int N, int T)
     {
+        StdRandom.setSeed(SEED);
+
         double total = 0.0;
         double[] array;
         for (int i = 0; i < T; i++) {
@@ -82,10 +86,10 @@ public final class SortCompare
 
     public static void main(String[] args)
     {
-        int N = 1000;
+        int N = 10000;
         int T = 100;
-        String alg1 = "insertion";
-        String alg2 = "shell";
+        String alg1 = "selection";
+        String alg2 = "insertion";
         double t1 = timeRandomInput(alg1, N, T);
         double t2 = timeRandomInput(alg2, N, T);
 
