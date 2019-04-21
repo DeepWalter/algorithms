@@ -3,7 +3,8 @@ package algorithms;
 
 /**
  * The {@code Sorted} class provides a utility method {@code isSorted(array)}
- * to test whether the array {@code array} is sorted in ascending order.
+ * to test whether the array {@code array} is sorted in <em>ascending</em>
+ * order.
  *
  * @author DeepWalter
  */

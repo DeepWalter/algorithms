@@ -28,6 +28,27 @@ package algorithms;
  * inserted.
  * </p>
  *
+ * <p>
+ * An <em>inversion</em> is a pair of elements that are out of order in the
+ * array. For example, in array {@code [3, 1, 2]}, both {@code (3, 1)} and
+ * {@code (3, 2)} are inversions. Since the insertion algorithm only swaps two
+ * adjacent elements, which can only reduce the number of inversions by one,
+ * the number of swaps it takes to sort the array amounts to the total number
+ * of inversions. And the number of comparisons is at least equal to the number
+ * of swaps.
+ * </p>
+ *
+ * <p>
+ * For a randomly ordered array with {@code n} elements, insertion sort takes
+ * about {@code n^2 / 4} comparisons and about {@code n^2 / 4} swaps on the
+ * average to sort it in ascending order. The worst case is about
+ * {@code n^2 / 2} swaps and about {@code n^2 / 2} comparisons while the best
+ * case is {@code n - 1} comparisons and {@code 0} swaps. Hence for a large
+ * array (with potentially more inversions) insertion sort may takes longer
+ * time than selection sort. But for a small array, it usually takes less time
+ * than selection sort.
+ * </p>
+ *
  * @author DeepWalter
  *
  * @see Shell
