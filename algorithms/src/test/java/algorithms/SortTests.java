@@ -16,7 +16,7 @@ import org.junit.runners.Parameterized.Parameters;
 public class SortTests
 {
     private double[] arr;
-    private int size = 1000;
+    private int size = 10000;
     private String alg;
 
     public SortTests(String name)
@@ -27,7 +27,7 @@ public class SortTests
     @Parameters(name = "Test {index}: {0}")
     public static Iterable<? extends Object> data()
     {
-        return Arrays.asList("selection", "insertion", "shell");
+        return Arrays.asList("selection", "insertion", "shell", "quick");
     }
 
     @Before
@@ -72,6 +72,8 @@ public class SortTests
                 break;
             case "shell":
                 Shell.sort(arr);
+            case "quick":
+                Quick.sort(arr);
 
             default:
                 break;
