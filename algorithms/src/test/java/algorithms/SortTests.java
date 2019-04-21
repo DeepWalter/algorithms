@@ -16,7 +16,7 @@ import org.junit.runners.Parameterized.Parameters;
 public class SortTests
 {
     private double[] arr;
-    private final long SEED = System.currentTimeMillis();
+    private static final long SEED = System.currentTimeMillis();
     private int size;
     private String alg;
 
@@ -30,6 +30,10 @@ public class SortTests
     public static Iterable<Object[]> data()
     {
         return Arrays.asList(new Object[][] {
+            {"selection", 100},
+            {"insertion", 100},
+            {"shell", 100},
+            {"quick", 100},
             {"selection", 1000},
             {"insertion", 1000},
             {"shell", 1000},
