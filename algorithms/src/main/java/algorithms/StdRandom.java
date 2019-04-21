@@ -1,5 +1,6 @@
 package algorithms;
 
+import java.util.Arrays;
 import java.util.Random;
 
 
@@ -119,5 +120,21 @@ public final class StdRandom
         return array;
     }
 
+    /**
+     * Return an uniformly distributed random integer array. The elements are
+     * in range {@code [0, bound)}, the array length is {@code size}.
+     *
+     * @param bound higher bound of the elements (exclusive)
+     * @param size length of the array
+     * @return an uniformly distributed random integer array
+     */
+    public static int[] randintArray(int bound, int size)
+    {
+        int[] array = new int[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = randint(bound);
+        }
 
+        return array;
+    }
 }
