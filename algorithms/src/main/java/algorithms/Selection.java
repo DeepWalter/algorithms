@@ -18,15 +18,18 @@ package algorithms;
  * after processing from index 0 to <em>n - 1</em> successively, the array is
  * sorted in ascending order.
  * </p>
+ *
  * <p>
  * Since finding the minimum among elements indexed from <em>i</em> to
- * <em>n - 1</em> takes <em>n - i</em> comparisons, the whole process takes
- * about <em>n^2 / 2</em> comparisons. Also note that the whole process needs
- * another <em>n</em> swaps. The time complexity of the selection sort is
+ * <em>n - 1</em> takes {@code n - i} comparisons, the whole process takes
+ * about {@code n^2 / 2} comparisons. Also note that the whole process needs
+ * another {@code n} swaps. The time complexity of the selection sort is
  * {@code O(n^2)}.
  * </p>
  *
  * @author DeepWalter
+ *
+ * @see Insertion
  */
 public final class Selection extends Sorted
 {
