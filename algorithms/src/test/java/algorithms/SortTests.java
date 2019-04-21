@@ -33,14 +33,19 @@ public class SortTests
             {"selection", 100},
             {"insertion", 100},
             {"shell", 100},
+            {"merge", 100},
             {"quick", 100},
+
             {"selection", 1000},
             {"insertion", 1000},
             {"shell", 1000},
+            {"merge", 1000},
             {"quick", 1000},
+
             {"selection", 10000},
             {"insertion", 10000},
             {"shell", 10000},
+            {"merge", 10000},
             {"quick", 10000}
         });
     }
@@ -88,8 +93,13 @@ public class SortTests
                 break;
             case "shell":
                 Shell.sort(arr);
+                break;
+            case "merge":
+                Merge.sort(arr);
+                break;
             case "quick":
                 Quick.sort(arr);
+                break;
 
             default:
                 break;
