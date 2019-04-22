@@ -2,13 +2,13 @@ package algorithms;
 
 
 /**
- * The {@code Sorted} class provides a utility method {@code isSorted(array)}
- * to test whether the array {@code array} is sorted in <em>ascending</em>
- * order.
+ * The {@code AbstractSorted} class provides a utility method
+ * {@code isSorted(array)} to test whether the array {@code array} is sorted
+ * in <em>ascending</em> order.
  *
  * @author DeepWalter
  */
-public abstract class Sorted
+public abstract class AbstractSorted
 {
     /**
      * Test if {@code array} is sorted in ascending order.

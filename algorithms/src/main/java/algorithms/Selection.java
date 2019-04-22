@@ -31,7 +31,7 @@ package algorithms;
  *
  * @see Insertion
  */
-public final class Selection extends Sorted
+public final class Selection extends AbstractSorted
 {
     // Prevent this class from being instantiated.
     private Selection() {}

@@ -4,12 +4,13 @@ package algorithms;
 /**
  *
  */
-public final class Quick extends Sorted
+public final class Quick extends AbstractSorted
 {
     private Quick() {}
 
     /**
      * Sort {@code array} in ascending order.
+     *
      * @param <T> the type of elements in {@code array}
      * @param array the array to be sorted
      */
@@ -37,7 +38,8 @@ public final class Quick extends Sorted
      * @param lo lower end of the portion
      * @param hi higher end of the portion
      */
-    public static <T extends Comparable<? super T>> void sort(T[] array, int lo, int hi)
+    public static <T extends Comparable<? super T>> void sort(T[] array,
+                                                              int lo, int hi)
     {
         if (hi <= lo) return;
 
