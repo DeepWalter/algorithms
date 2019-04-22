@@ -59,8 +59,7 @@ public class LinkedListQueue<E> implements Queue<E>
     @Override
     public Iterator<E> iterator()
     {
-        return new Iterator<E> ()
-        {
+        return new Iterator<E> () {
             private Node iter = head;
 
             public boolean hasNext() { return iter != null; }

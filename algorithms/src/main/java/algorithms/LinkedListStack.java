@@ -56,8 +56,7 @@ public class LinkedListStack<E> implements Stack<E>
     @Override
     public Iterator<E> iterator()
     {
-        return new Iterator<E> ()
-        {
+        return new Iterator<E> () {
             private Node iter = top;
 
             public boolean hasNext() { return iter != null; }

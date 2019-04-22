@@ -53,8 +53,7 @@ public class FixedCapacityStack<E> implements Stack<E>
     @Override
     public Iterator<E> iterator()
     {
-        return new Iterator<E>()
-        {
+        return new Iterator<E>() {
             private int id = N;
 
             public boolean hasNext() { return id != 0; }
