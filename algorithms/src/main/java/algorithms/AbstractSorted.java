@@ -2,21 +2,19 @@ package algorithms;
 
 
 /**
- * The {@code AbstractSorted} class provides a utility method
- * {@code isSorted(array)} to test whether the array {@code array} is sorted
- * in <em>ascending</em> order.
+ * The {@code AbstractSorted} class provides a utility method {@code isSorted(array)} to test
+ * whether the array {@code array} is sorted in <em>ascending</em> order.
  *
  * @author DeepWalter
  */
 public abstract class AbstractSorted
 {
     /**
-     * Test if {@code array} is sorted in ascending order.
+     * Tests if {@code array} is sorted in ascending order.
      *
      * @param <T> the type of {@code array} elements
      * @param array array to be tested
-     * @return {@code true} if {@code array} is sorted in ascending order;
-     * {@code false} otherwise
+     * @return {@code true} if {@code array} is sorted in ascending order; {@code false} otherwise
      */
     public static <T extends Comparable<? super T>> boolean isSorted(T[] array)
     {
@@ -27,11 +25,10 @@ public abstract class AbstractSorted
     }
 
     /**
-     * Test if {@code array} is sorted in ascending order.
+     * Tests if {@code array} is sorted in ascending order.
      *
      * @param array an {@code int} array to be tested
-     * @return {@code true} if {@code array} is sorted in ascending order;
-     * {@code false} otherwise
+     * @return {@code true} if {@code array} is sorted in ascending order; {@code false} otherwise
      */
     public static boolean isSorted(int[] array)
     {
@@ -43,11 +40,10 @@ public abstract class AbstractSorted
     }
 
     /**
-     * Test if {@code array} is sorted in ascending order.
+     * Tests if {@code array} is sorted in ascending order.
      *
-     * @param array an {@code double} array to be tested
-     * @return {@code true} if {@code array} is sorted in ascending order;
-     * {@code false} otherwise
+     * @param array a {@code double} array to be tested
+     * @return {@code true} if {@code array} is sorted in ascending order; {@code false} otherwise
      */
     public static boolean isSorted(double[] array)
     {

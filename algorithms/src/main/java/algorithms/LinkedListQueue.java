@@ -4,8 +4,8 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * {@code LinkedListQueue} is an implementation of the <em>FIFO</em>
- * {@link Queue} via singly linked list.
+ * {@code LinkedListQueue} is an implementation of the <em>FIFO</em> {@link Queue} via singly linked
+ * list.
  *
  * @param <E> the type of elements in {@code LinkedListQueue}
  */

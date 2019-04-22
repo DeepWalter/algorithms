@@ -38,8 +38,7 @@ public final class Quick extends AbstractSorted
      * @param lo lower end of the portion
      * @param hi higher end of the portion
      */
-    public static <T extends Comparable<? super T>> void sort(T[] array,
-                                                              int lo, int hi)
+    public static <T extends Comparable<? super T>> void sort(T[] array, int lo, int hi)
     {
         if (hi <= lo) return;
 
