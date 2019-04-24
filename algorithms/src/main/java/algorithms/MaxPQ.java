@@ -29,7 +29,7 @@ public interface MaxPQ<E extends Comparable<? super E>>
      *
      * @return {@code true} if this maximum priority queue is empty; {@code false} otherwise
      */
-    boolean isEmpty();
+    default boolean isEmpty() { return size() == 0; }
 
     /**
      * Returns the number of elements in this maximum priority queue.

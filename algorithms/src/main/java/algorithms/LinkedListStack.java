@@ -24,9 +24,6 @@ public class LinkedListStack<E> implements Stack<E>
     }
 
     @Override
-    public boolean isEmpty() { return N == 0; }
-
-    @Override
     public int size() { return N; }
 
     @Override

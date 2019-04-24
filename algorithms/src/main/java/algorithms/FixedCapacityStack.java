@@ -29,9 +29,6 @@ public class FixedCapacityStack<E> implements Stack<E>
         a = (E[]) new Object[capacity];
     }
 
-    @Override
-    public boolean isEmpty() { return N == 0; }
-
     /**
      * Tests whether this {@code FixedCapacityStack} has reached its maximal capacity.
      *

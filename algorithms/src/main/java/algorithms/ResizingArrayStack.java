@@ -57,9 +57,6 @@ public class ResizingArrayStack<E> implements Stack<E>
     @Override
     public int size() { return N; }
 
-    @Override
-    public boolean isEmpty() { return N == 0; }
-
     /**
      * @param elem the element to be pushed
      */

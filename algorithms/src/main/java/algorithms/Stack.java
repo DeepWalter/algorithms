@@ -31,7 +31,7 @@ public interface Stack<E> extends Iterable<E>
      *
      * @return {@code true} if this stack is empty; {@code false} otherwise
      */
-    boolean isEmpty();
+    default boolean isEmpty() { return size() == 0; }
 
     /**
      * Get the size of this stack.

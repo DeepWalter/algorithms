@@ -67,8 +67,5 @@ public class HeapMaxPQ<E extends Comparable<? super E>> implements MaxPQ<E>
     }
 
     @Override
-    public boolean isEmpty() { return N == 1; }
-
-    @Override
     public int size() { return N - 1; }
 }

@@ -25,7 +25,7 @@ public interface Bag<E> extends Iterable<E>
      *
      * @return {@code true} if this bag is empty; {@code false} otherwise
      */
-    boolean isEmpty();
+    default boolean isEmpty() { return size() == 0; }
 
     /**
      * Returns the size of this bag.

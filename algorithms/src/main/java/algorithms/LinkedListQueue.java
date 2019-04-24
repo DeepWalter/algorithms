@@ -22,9 +22,6 @@ public class LinkedListQueue<E> implements Queue<E>
     }
 
     @Override
-    public boolean isEmpty() { return N == 0; }
-
-    @Override
     public int size() { return N; }
 
     @Override
