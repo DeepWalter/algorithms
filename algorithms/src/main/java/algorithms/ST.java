@@ -26,11 +26,12 @@ public interface ST<K, V>
     V get(K key);
 
     /**
-     * Removes {@code key} and its value from this symbol table.
+     * Removes {@code key} and its value from this symbol table. Default to the lazy deletion: just
+     * set the value associated with key to {@code null}.
      *
      * @param key the key to remove
      */
-    void delete(K key);
+    default  void delete(K key) { put(key, null); }
 
     /**
      * Tests if there is a value paired with {@code key}.
@@ -38,7 +39,7 @@ public interface ST<K, V>
      * @param key the key to match
      * @return {@code true} if there is a value paired with {@code key}; {@code false} otherwise
      */
-    boolean contains(K key);
+    default boolean contains(K key) { return get(key) != null; }
 
     /**
      * Returns the number of key-value pairs in this symbol table.
