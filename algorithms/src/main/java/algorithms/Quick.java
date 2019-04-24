@@ -2,14 +2,14 @@ package algorithms;
 
 
 /**
- *
+ * The {@code Quick} class implements the quick sort algorithm.
  */
-public final class Quick extends AbstractSorted
+public final class Quick implements Sorted
 {
     private Quick() {}
 
     /**
-     * Sort {@code array} in ascending order.
+     * Sorts {@code array} in ascending order.
      *
      * @param <T> the type of elements in {@code array}
      * @param array the array to be sorted
@@ -19,24 +19,33 @@ public final class Quick extends AbstractSorted
         sort(array, 0, array.length - 1);
     }
 
+    /**
+     * Sorts {@code array} in ascending order.
+     *
+     * @param array the array to be sorted
+     */
     public static void sort(double[] array)
     {
         sort(array, 0, array.length - 1);
     }
 
+    /**
+     * Sorts {@code array} in ascending order.
+     *
+     * @param array the array to be sorted
+     */
     public static void sort(int[] array)
     {
         sort(array, 0, array.length - 1);
     }
 
     /**
-     * Sort the portion between index {@code lo} and index {@code hi} of
-     * {@code array}.
+     * Sorts the part of {@code array} between {@code lo} and {@code hi}.
      *
      * @param <T> the type of elements in {@code array}
-     * @param array the array whose portion to be sorted
-     * @param lo lower end of the portion
-     * @param hi higher end of the portion
+     * @param array the array whose part to be sorted
+     * @param lo low end index (inclusive) of the part
+     * @param hi high end index (inclusive) of the part
      */
     public static <T extends Comparable<? super T>> void sort(T[] array, int lo, int hi)
     {
@@ -47,6 +56,13 @@ public final class Quick extends AbstractSorted
         sort(array, p + 1, hi);
     }
 
+    /**
+     * Sorts the part of {@code array} between {@code lo} and {@code hi}.
+     *
+     * @param array the array whose part to be sorted
+     * @param lo low end index (inclusive) of the part
+     * @param hi high end index (inclusive) of the part
+     */
     public static void sort(double[] array, int lo, int hi)
     {
         if (hi <= lo) return;
@@ -56,6 +72,13 @@ public final class Quick extends AbstractSorted
         sort(array, p + 1, hi);
     }
 
+    /**
+     * Sorts the part of {@code array} between {@code lo} and {@code hi}.
+     *
+     * @param array the array whose part to be sorted
+     * @param lo low end index (inclusive) of the part
+     * @param hi high end index (inclusive) of the part
+     */
     public static void sort(int[] array, int lo, int hi)
     {
         if (hi <= lo) return;
@@ -65,6 +88,15 @@ public final class Quick extends AbstractSorted
         sort(array, p + 1, hi);
     }
 
+    /**
+     * Partitions the part of {@code array} between {@code lo} and {@code hi}.
+     *
+     * @param <T> the type of elements in {@code array}
+     * @param array the array whose part is to be sorted
+     * @param lo low end index (inclusive) of the part
+     * @param hi high end index (inclusive) of the part
+     * @return the index of the partition pivot
+     */
     private static <T extends Comparable<? super T>> int partition(T[] array, int lo, int hi)
     {
         int p = StdRandom.randint(lo, hi + 1);

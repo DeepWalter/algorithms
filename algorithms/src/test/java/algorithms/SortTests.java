@@ -82,7 +82,7 @@ public class SortTests
     @Test
     public void testSort()
     {
-        assertFalse(AbstractSorted.isSorted(arr));
+        assertFalse(Sorted.isSorted(arr));
 
         switch (alg.toLowerCase()) {
             case "selection":
@@ -105,6 +105,6 @@ public class SortTests
                 break;
         }
 
-        assertTrue(AbstractSorted.isSorted(arr));
+        assertTrue(Sorted.isSorted(arr));
     }
 }
