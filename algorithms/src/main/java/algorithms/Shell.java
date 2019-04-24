@@ -17,7 +17,7 @@ package algorithms;
  * @see Insertion
  * @see Selection
  */
-public final class Shell extends AbstractSorted
+public final class Shell implements Sorted
 {
     // Prevent this class from being instantiated.
     private Shell() {}

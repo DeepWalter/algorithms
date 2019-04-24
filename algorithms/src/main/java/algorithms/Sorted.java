@@ -2,12 +2,12 @@ package algorithms;
 
 
 /**
- * The {@code AbstractSorted} class provides a utility method {@code isSorted(array)} to test
+ * The {@code Sorted} interface provides a utility method {@code isSorted(array)} to test
  * whether the array {@code array} is sorted in <em>ascending</em> order.
  *
  * @author DeepWalter
  */
-public abstract class AbstractSorted
+public interface Sorted
 {
     /**
      * Tests if {@code array} is sorted in ascending order.
@@ -16,7 +16,7 @@ public abstract class AbstractSorted
      * @param array array to be tested
      * @return {@code true} if {@code array} is sorted in ascending order; {@code false} otherwise
      */
-    public static <T extends Comparable<? super T>> boolean isSorted(T[] array)
+    static <T extends Comparable<? super T>> boolean isSorted(T[] array)
     {
         for (int i = 1; i < array.length; i++) {
             if (less(array[i], array[i - 1])) return false;
@@ -30,7 +30,7 @@ public abstract class AbstractSorted
      * @param array an {@code int} array to be tested
      * @return {@code true} if {@code array} is sorted in ascending order; {@code false} otherwise
      */
-    public static boolean isSorted(int[] array)
+    static boolean isSorted(int[] array)
     {
         int N = array.length;
         for (int i = 1; i < N; i++) {
@@ -45,7 +45,7 @@ public abstract class AbstractSorted
      * @param array a {@code double} array to be tested
      * @return {@code true} if {@code array} is sorted in ascending order; {@code false} otherwise
      */
-    public static boolean isSorted(double[] array)
+    static boolean isSorted(double[] array)
     {
         int N = array.length;
         for (int i = 1; i < N; i++) {
