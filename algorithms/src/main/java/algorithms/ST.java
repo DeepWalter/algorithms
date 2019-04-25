@@ -26,6 +26,13 @@ package algorithms;
  *   <li>Keys must not be {@code null};</li>
  *   <li>No key can be associated with the value {@code null}.</li>
  * </ul>
+ * The last convention is directly tied to the specification that {@code get} should return
+ * {@code null} for keys not in the table, effectively associating the value {@code null} with every
+ * key not in the table. This gives rise to lazy deletion for existing keys: just set their
+ * corresponding values to {@code null}.
+ * </p>
+ *
+ * <p>
  * For more information, see Section 3.1 of <em>Algorithms, 4th edition</em>.
  * </p>
  *
@@ -39,7 +46,7 @@ package algorithms;
 public interface ST<K, V>
 {
     /**
-     * Puts key-value pair into this symbol table, or removes {@code key} if {@code val} is
+     * Puts key-value pair into this symbol table, or deletes {@code key} if {@code val} is
      * {@code null}.
      *
      * @param key the key to insert
@@ -57,7 +64,7 @@ public interface ST<K, V>
 
     /**
      * Removes {@code key} and its value from this symbol table. Default to the lazy deletion: when
-     * {@code key} exists, just set the value associated with key to {@code null}.
+     * {@code key} exists, just set the value associated with it to {@code null}.
      *
      * <p>
      * <strong>Note:</strong> the default lazy deletion will not complain when you try to delete an
