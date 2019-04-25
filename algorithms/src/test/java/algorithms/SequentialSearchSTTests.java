@@ -1,6 +1,7 @@
 package algorithms;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
@@ -49,5 +50,24 @@ public class SequentialSearchSTTests
         st.put("beijing", "goodagain");
         assertEquals(3, st.size());
         assertEquals("goodagain", st.get("beijing"));
+    }
+
+    @Test
+    public void testInterable()
+    {
+        assertTrue(st.isEmpty());
+
+        st.put("beijing", "good");
+        st.put("tianjin", "cool");
+        st.put("shanghai", "hmmm");
+        assertEquals(3, st.size());
+
+        st.put("beijing", null);
+        int count = 0;
+        for (String s: st.keys()) {
+            assertNotEquals("beijing", s);
+            count++;
+        }
+        assertEquals(2, count);
     }
 }

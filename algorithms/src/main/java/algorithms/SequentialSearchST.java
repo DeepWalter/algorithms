@@ -67,31 +67,17 @@ public class SequentialSearchST<K, V> implements ST<K, V>
     @Override
     public Iterable<K> keys()
     {
-        // return new Iterable<K>() {
-        //     public Iterator<K> iterator()
-        //     {
-        //         return new Iterator<K>() {
-        //             private Node iter = head;
-
-        //             public boolean hasNext() { return iter != null; }
-
-        //             public K next() throws NoSuchElementException
-        //             {
-        //                 if (!hasNext()) throw new NoSuchElementException();
-
-        //                 K temp = iter.key;
-        //                 iter = iter.next;
-
-        //                 return temp;
-        //             }
-        //         };
-        //     }
-        // };
         return () -> new Iterator<K>() {
             private Node iter = head;
 
             @Override
-            public boolean hasNext() { return iter != null; }
+            public boolean hasNext()
+            {
+                // Point iter to an existing key if there is any.
+                while (iter != null && iter.val == null) iter = iter.next;
+
+                return iter != null;
+            }
 
             @Override
             public K next() throws NoSuchElementException
@@ -105,4 +91,6 @@ public class SequentialSearchST<K, V> implements ST<K, V>
             }
         };
     }
+
+    // TODO: implement an eager deletion.
 }
