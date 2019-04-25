@@ -56,8 +56,13 @@ public interface ST<K, V>
     V get(K key);
 
     /**
-     * Removes {@code key} and its value from this symbol table. Default to the lazy deletion: just
-     * set the value associated with key to {@code null}.
+     * Removes {@code key} and its value from this symbol table. Default to the lazy deletion: when
+     * {@code key} exists, just set the value associated with key to {@code null}.
+     *
+     * <p>
+     * <strong>Note:</strong> the default lazy deletion will not complain when you try to delete an
+     * absent key -- it simply does nothing.
+     * </p>
      *
      * @param key the key to remove
      */
