@@ -2,8 +2,8 @@ package algorithms;
 
 
 /**
- * An unordered <em>symbol table</em>. A symbol table is a data structure for key-value pairs that
- * supports two operations:
+ * An unordered <em>symbol table</em>. A (unordered) symbol table is a data structure for key-value
+ * pairs that supports two operations:
  * <ul>
  *   <li>{@link #put}: <em>insert</em> a new pair into the table;</li>
  *   <li>{@link #get}: <em>search for</em> the value associated with a given key.</li>

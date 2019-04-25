@@ -2,9 +2,28 @@ package algorithms;
 
 
 /**
+ * An ordered symbol table in which the keys are totally ordered (usually by implementing the
+ * {@code Comparable} interface). Besides basic {@link ST} (symbol table) operations, this interface
+ * provides many additional operations such as:
+ * <ul>
+ *   <li>{@link #max} and {@link #min}: return the maximal and minimal key respectively;</li>
+ *   <li>{@link #delMax} and {@link #delMin}: shorthand operations to remove the maximum and minimum
+ * respectively;</li>
+ *   <li>{@link #floor} and {@link #ceiling}: generalization of the usual floor and ceiling
+ * operations to keys;</li>
+ *   <li>{@link #rank} and {@link #select}: provide an array-like index system for keys.</li>
+ * </ul>
+ *
+ * <p>
+ * This interface aims at efficient implementations of the {@code put} and {@code get} operations.
+ * </p>
  *
  * @param <K> the type of keys
  * @param <V> the type of values
+ *
+ * @author DeepWalter
+ *
+ * @see ST
  */
 public interface OrderedST<K extends Comparable<? super K>, V> extends ST<K, V>
 {
