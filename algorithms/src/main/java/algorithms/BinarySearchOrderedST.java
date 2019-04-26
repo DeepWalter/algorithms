@@ -14,6 +14,18 @@ public class BinarySearchOrderedST<K extends Comparable<? super K>, V> implement
     private V[] vals;
     private int N;      // size
 
+    /**
+     * Initialization.
+     *
+     * @param capacity maximal number of pairs this symbol table can hold
+     */
+    @SuppressWarnings("unchecked")
+    public BinarySearchOrderedST(int capacity)
+    {
+        keys = (K[]) new Comparable[capacity];
+        vals = (V[]) new Object[capacity];
+    }
+
     @Override
     public int size() { return N; }
 
@@ -105,6 +117,10 @@ public class BinarySearchOrderedST<K extends Comparable<? super K>, V> implement
         }
     }
 
+    /**
+     * @param key the key to insert
+     * @param val the value corresponding to the key
+     */
     @Override
     public void put(K key, V val)
     {
@@ -120,6 +136,11 @@ public class BinarySearchOrderedST<K extends Comparable<? super K>, V> implement
         //     keys[i] = key;
         //     vals[i] = val;
         // }
+
+        if (val == null) {
+            delete(key);
+            return;
+        }
 
         int i = rank(key);
 
