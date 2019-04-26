@@ -28,16 +28,20 @@ package algorithms;
 public interface OrderedST<K extends Comparable<? super K>, V> extends ST<K, V>
 {
     /**
-     * Returns the smallest key in this ordered symbol table.
+     * Returns the smallest key in this ordered symbol table, or {@code null} if this symbol table
+     * is empty.
      *
-     * @return the smallest key in this ordered symbol table
+     * @return the smallest key in this ordered symbol table, or {@code null} if this symbol table
+     * is empty.
      */
     K min();
 
     /**
-     * Returns the largest key in this ordered symbol table.
+     * Returns the largest key in this ordered symbol table, or {@code null} if this symbol table
+     * is empty.
      *
-     * @return the largest key in this ordered symbol table
+     * @return the largest key in this ordered symbol table, or {@code null} if this symbol table
+     * is empty
      */
     K max();
 
@@ -72,7 +76,13 @@ public interface OrderedST<K extends Comparable<? super K>, V> extends ST<K, V>
      *   <li>{@code select(rank(key)) == key} for all {@code key} in this ordered symbol table.</li>
      * </ul>
      * The {@code rank} method is mainly used for determining where a new key fits in the order,
-     * while {@code select} provides a quick access to the value at a given rank.
+     * while {@code select} provides a quick access to the value at a given rank. Together, they
+     * provide an array-like index system for keys.
+     * </p>
+     *
+     * <p>
+     * <strong>Note:</strong> when the symbol table is empty, {@code rank} will return {@code 0} on
+     * any key.
      * </p>
      *
      * @param key the key to match
@@ -97,11 +107,11 @@ public interface OrderedST<K extends Comparable<? super K>, V> extends ST<K, V>
      * </p>
      *
      * @param k the rank
-     * @return the key at rank {@code k}
+     * @return the key with rank {@code k}
      *
      * @see #rank
      */
-    K select(int k);
+    K select(int i);
 
     /**
      * Removes the smallest key and its value.
