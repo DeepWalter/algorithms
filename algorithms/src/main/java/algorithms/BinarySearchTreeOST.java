@@ -158,4 +158,49 @@ public class BinarySearchTreeOST<K extends Comparable<? super K>, V> implements 
         return node;
     }
 
+    @Override
+    public void delMin() { root = delMin(root); }
+
+    /**
+     * Removes the smallest key and its value from the subtree rooted at {@code node}.
+     *
+     * @param node the root of the subtree
+     * @return the root of the new subtree
+     */
+    private Node delMin(Node node)
+    {
+        if (node == null) return null;
+
+        if (node.left == null) {
+            node = node.right;
+        } else {
+            node.left = delMin(node.left);
+            node.N = size(node.left) + size(node.right) + 1;
+        }
+
+        return node;
+    }
+
+    @Override
+    public void delMax() { root = delMax(root); }
+
+    /**
+     * Removes the largest key and its value from the subtree rooted at {@code node}.
+     *
+     * @param node the root of the subtree
+     * @return the root of the new subtree
+     */
+    private Node delMax(Node node)
+    {
+        if (node == null) return null;
+
+        if (node.right == null) {
+            node = node.left;
+        } else {
+            node.right = delMax(node.right);
+            node.N = size(node.left) + size(node.right) + 1;
+        }
+
+        return node;
+    }
 }
