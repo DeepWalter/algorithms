@@ -1,5 +1,6 @@
 package algorithms;
 
+import java.util.NoSuchElementException;
 
 /**
  * Binary search tree implementation of {@link OST} ordered symbol table interface.
@@ -272,6 +273,62 @@ public class BinarySearchTreeOST<K extends Comparable<? super K>, V> implements 
             return size(node.left) + 1 + rank(key, node.right);
         } else {
             return size(node.left);
+        }
+    }
+
+    @Override
+    public K select(int i) { return select(i, root); }
+
+    /**
+     * Returns the key with rank {@code i} in the subtree rooted at {@code node}.
+     *
+     * @param i the rank
+     * @param node the root of the subtree
+     * @return the key with rank {@code i} in the subtree rooted at {@code node}
+     */
+    private K select(int i, Node node) throws NoSuchElementException
+    {
+        // if subtree is empty or i is out of range
+        if (i < 0 || i >= size(node)) throw new NoSuchElementException();
+
+        int s = size(node.left);
+        if (i == s) {
+            return node.key;
+        } else if (i < s) {
+            return select(i, node.left);
+        } else {
+            return select(i - s - 1, node.right);
+        }
+    }
+
+    @Override
+    public K floor(K key) { return floor(key, root); }
+
+    /**
+     * Returns the largest key less than or equal to {@code key} in the subtree rooted at
+     * {@code node}, or {@code null} if there is no such element.
+     *
+     * @param key the key to match
+     * @param node the root of the subtree
+     * @return the largest key less than or equal to {@code key} in the subtree rooted at
+     * {@code node}, or {@code null} if there is no such element
+     */
+    private K floor(K key, Node node)
+    {
+        if (node == null) return null;
+
+        int cmp = key.compareTo(node.key);
+        if (cmp < 0) {
+            return floor(key, node.left);
+        } else if (cmp == 0) {
+            return node.key;
+        } else {
+            K t = floor(key, node.right);
+            if (t != null) {
+                return t;
+            } else {
+                return node.key;
+            }
         }
     }
 }
