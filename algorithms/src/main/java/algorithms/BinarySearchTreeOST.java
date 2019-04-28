@@ -127,5 +127,35 @@ public class BinarySearchTreeOST<K extends Comparable<? super K>, V> implements 
         }
     }
 
+    @Override
+    public void put(K key, V val)
+    {
+        root = put(key, val, root);
+    }
+
+    /**
+     * Inserts the key-value pair into the subtree rooted at {@code node}.
+     *
+     * @param key the key to insert
+     * @param val the value to insert
+     * @param node the root of the subtree
+     * @return the root of the new subtree
+     */
+    private Node put(K key, V val, Node node)
+    {
+        if (node == null) return new Node(key, val, 1);
+
+        int cmp = key.compareTo(node.key);
+        if (cmp < 0) {
+            node.left = put(key, val, node.left);
+        } else if (cmp > 0) {
+            node.right = put(key, val, node.right);
+        } else {
+            node.val = val;
+        }
+        node.N = size(node.left) + size(node.right) + 1;
+
+        return node;
+    }
 
 }
