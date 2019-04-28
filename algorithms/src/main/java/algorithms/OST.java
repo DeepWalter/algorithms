@@ -93,7 +93,7 @@ public interface OST<K extends Comparable<? super K>, V> extends ST<K, V>
     int rank(K key);
 
     /**
-     * Returns the key at rank {@code k}.
+     * Returns the key with rank {@code i}.
      *
      * <p>
      * The methods {@link #rank} and {@link #select} must satisfy:
@@ -103,11 +103,12 @@ public interface OST<K extends Comparable<? super K>, V> extends ST<K, V>
      *   <li>{@code select(rank(key)) == key} for all {@code key} in this ordered symbol table.</li>
      * </ul>
      * The {@code rank} method is mainly used for determining where a new key fits in the order,
-     * while {@code select} provides a quick access to the value at a given rank.
+     * while {@code select} provides a quick access to the value at a given rank. Together, they
+     * provide an array-like index system for keys.
      * </p>
      *
-     * @param k the rank
-     * @return the key with rank {@code k}
+     * @param i the rank
+     * @return the key with rank {@code i}
      *
      * @see #rank
      */
