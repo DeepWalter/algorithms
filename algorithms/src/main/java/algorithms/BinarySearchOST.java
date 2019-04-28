@@ -42,7 +42,7 @@ public class BinarySearchOST<K extends Comparable<? super K>, V> implements OST<
     {
         if (isEmpty()) return null;
 
-        return keys[keys.length - 1];
+        return keys[N - 1];
     }
 
     /**
