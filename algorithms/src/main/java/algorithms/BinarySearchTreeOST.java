@@ -203,4 +203,40 @@ public class BinarySearchTreeOST<K extends Comparable<? super K>, V> implements 
 
         return node;
     }
+
+    /**
+     * @param key the key to delete
+     */
+    @Override
+    public void delete(K key) { root = delete(key, root); }
+
+    /**
+     * Removes {@code key} and its value from the subtree rooted at {@code node}.
+     *
+     * @param key the key to delete
+     * @param node the root of the subtree
+     * @return the root of the new subtree
+     */
+    private Node delete(K key, Node node)
+    {
+        if (node == null) return null;
+
+        int cmp = key.compareTo(node.key);
+        if (cmp < 0) {
+            node.left = delete(key, node.left);
+        } else if (cmp > 0) {
+            node.right = delete(key, node.right);
+        } else {
+            if (node.left == null) return node.right;
+            if (node.right == null) return node.left;
+
+            Node successor = min(node.right);
+            successor.right = delMin(node.right);
+            successor.left = node.left;
+            node = successor;
+        }
+        node.N = size(node.left) + size(node.right) + 1;
+
+        return node;
+    }
 }
