@@ -247,4 +247,31 @@ public class BinarySearchTreeOST<K extends Comparable<? super K>, V> implements 
 
         return node;
     }
+
+    /**
+     * @param key the key to match
+     */
+    @Override
+    public int rank(K key) { return rank(key, root); }
+
+    /**
+     * Returns the rank of {@code key} in the subtree rooted at {@code node}.
+     *
+     * @param key the key to match
+     * @param node the root of the subtree
+     * @return the rank of {@code key} in the subtree rooted at {@code node}
+     */
+    private int rank(K key, Node node)
+    {
+        if (node == null) return 0;
+
+        int cmp = key.compareTo(node.key);
+        if (cmp < 0) {
+            return rank(key, node.left);
+        } else if (cmp > 0) {
+            return size(node.left) + 1 + rank(key, node.right);
+        } else {
+            return size(node.left);
+        }
+    }
 }
