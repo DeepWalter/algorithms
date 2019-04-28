@@ -3,7 +3,7 @@ package algorithms;
 import java.util.NoSuchElementException;
 
 /**
- * Array implementation of {@link OrderedST} (ordered symbol table) interface.
+ * Array implementation of {@link OST} (ordered symbol table) interface.
  *
  * @param <K> the type of keys
  * @param <V> the type of values
