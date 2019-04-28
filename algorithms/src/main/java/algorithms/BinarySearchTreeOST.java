@@ -17,11 +17,11 @@ public class BinarySearchTreeOST<K extends Comparable<? super K>, V> implements 
 
     private class Node
     {
-        private K key;
-        private V val;
-        private Node left;
-        private Node right;
-        private int N = 1;      // size of the subtree rooted at this node
+        K key;
+        V val;
+        Node left;
+        Node right;
+        int N = 1;      // size of the subtree rooted at this node
 
         public Node(K key, V val, int N)
         {
