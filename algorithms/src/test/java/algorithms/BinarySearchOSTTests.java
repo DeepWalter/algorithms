@@ -6,14 +6,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BinarySearchOrderedSTTests
+public class BinarySearchOSTTests
 {
-    private OrderedST<String, String> ost;
+    private OST<String, String> ost;
 
     @Before
     public void setUp()
     {
-        ost = new BinarySearchOrderedST<String, String>(20);
+        ost = new BinarySearchOST<String, String>(20);
     }
 
     @After

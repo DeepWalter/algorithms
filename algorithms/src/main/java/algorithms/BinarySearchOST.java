@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
  * @param <K> the type of keys
  * @param <V> the type of values
  */
-public class BinarySearchOrderedST<K extends Comparable<? super K>, V> implements OrderedST<K, V>
+public class BinarySearchOST<K extends Comparable<? super K>, V> implements OST<K, V>
 {
     private K[] keys;
     private V[] vals;
@@ -20,7 +20,7 @@ public class BinarySearchOrderedST<K extends Comparable<? super K>, V> implement
      * @param capacity maximal number of pairs this symbol table can hold
      */
     @SuppressWarnings("unchecked")
-    public BinarySearchOrderedST(int capacity)
+    public BinarySearchOST(int capacity)
     {
         keys = (K[]) new Comparable[capacity];
         vals = (V[]) new Object[capacity];

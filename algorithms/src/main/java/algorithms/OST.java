@@ -25,7 +25,7 @@ package algorithms;
  *
  * @see ST
  */
-public interface OrderedST<K extends Comparable<? super K>, V> extends ST<K, V>
+public interface OST<K extends Comparable<? super K>, V> extends ST<K, V>
 {
     /**
      * Returns the smallest key in this ordered symbol table, or {@code null} if this symbol table
