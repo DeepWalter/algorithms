@@ -127,10 +127,18 @@ public class BinarySearchTreeOST<K extends Comparable<? super K>, V> implements 
         }
     }
 
+    /**
+     * @param key the key to insert
+     * @param val the value corresponding to the key
+     */
     @Override
     public void put(K key, V val)
     {
-        root = put(key, val, root);
+        if (val == null) {
+            root = delete(key, root);
+        } else {
+            root = put(key, val, root);
+        }
     }
 
     /**
