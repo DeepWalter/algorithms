@@ -25,10 +25,13 @@ public class BinarySearchOSTTests
     @Test
     public void TestPut()
     {
-        ost.put("beijing", "good");
-        assertEquals(1, ost.size());
+        String[] list = {"b", "e", "d", "c", "a"};
+        for (String s: list) {
+            ost.put(s, "value: " + s);
+        }
+        assertEquals(list.length, ost.size());
 
-        ost.put("bei", null);
-        assertEquals(1, ost.size());
+        assertEquals("e", ost.max());
+        assertEquals("a", ost.min());
     }
 }
