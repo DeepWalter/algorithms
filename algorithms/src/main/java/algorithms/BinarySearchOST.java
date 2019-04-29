@@ -29,6 +29,7 @@ public class BinarySearchOST<K extends Comparable<? super K>, V> implements OST<
     @Override
     public int size() { return N; }
 
+    /*********************************
     @Override
     public K min()
     {
@@ -44,6 +45,7 @@ public class BinarySearchOST<K extends Comparable<? super K>, V> implements OST<
 
         return keys[N - 1];
     }
+    *********************************/
 
     /**
      * @param key the key to match
@@ -85,9 +87,12 @@ public class BinarySearchOST<K extends Comparable<? super K>, V> implements OST<
     @Override
     public K ceiling(K key)
     {
-        if (isEmpty() || key.compareTo(max()) > 0) return null;
+        if (isEmpty()) return null;
 
-        return keys[rank(key)];
+        int i = rank(key);
+        if (i >= N) return null;
+
+        return keys[i];
     }
 
     @Override
