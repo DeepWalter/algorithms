@@ -11,8 +11,10 @@ import java.util.NoSuchElementException;
  */
 public class SequentialSearchST<K, V> implements ST<K, V>
 {
+    /** Reference to the head node of this symbol table. */
     private Node head;
-    private int N;      // size of this symbol table
+    /** Size of this symbol table. */
+    private int size;
 
     private class Node
     {
@@ -29,7 +31,7 @@ public class SequentialSearchST<K, V> implements ST<K, V>
     }
 
     @Override
-    public int size() { return N; }
+    public int size() { return size; }
 
     /**
      * @param key the key to match
@@ -50,8 +52,8 @@ public class SequentialSearchST<K, V> implements ST<K, V>
     {
         for (Node iter = head; iter != null; iter = iter.next) {
             if (iter.key.equals(key)) {
-                if (iter.val != null && val == null) N--;   // lazy deletion
-                if (iter.val == null && val != null) N++;   // insertion
+                if (iter.val != null && val == null) size--;   // lazy deletion
+                if (iter.val == null && val != null) size++;   // insertion
                 iter.val = val;
                 return;
             }
@@ -60,7 +62,7 @@ public class SequentialSearchST<K, V> implements ST<K, V>
         // when key is absent
         if (val != null) {
             head = new Node(key, val, head);
-            N++;
+            size++;
         }
     }
 
