@@ -60,6 +60,11 @@ public class SequentialSearchST<K, V> implements ST<K, V>
         return null;
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @throws IllegalArgumentException if {@code key} is {@code null}
+     */
     @Override
     public void put(K key, V val) throws IllegalArgumentException
     {
@@ -67,22 +72,25 @@ public class SequentialSearchST<K, V> implements ST<K, V>
             throw new IllegalArgumentException("First argument to put() is null!");
         }
 
+        if (val == null) {
+            delete(key);
+            return;
+        }
+
         for (Node iter = head; iter != null; iter = iter.next) {
-            if (iter.key.equals(key)) {
-                if (iter.val != null && val == null) size--;   // lazy deletion
-                if (iter.val == null && val != null) size++;   // insertion
-                iter.val = val;
+            if (key.equals(iter.key)) {     // when key is found
+                iter.val = val;             // overrides the value
                 return;
             }
         }
-
         // when key is absent
-        if (val != null) {
-            head = new Node(key, val, head);
-            size++;
-        }
+        head = new Node(key, val, head);    // inserts key-val pair at head
+        size++;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Iterable<K> keys()
     {
@@ -92,9 +100,6 @@ public class SequentialSearchST<K, V> implements ST<K, V>
             @Override
             public boolean hasNext()
             {
-                // Point iter to an existing key if there is any.
-                while (iter != null && iter.val == null) iter = iter.next;
-
                 return iter != null;
             }
 
