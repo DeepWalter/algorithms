@@ -4,8 +4,13 @@ package algorithms;
 /**
  * Separate chaining hash table implementation of the {@link ST} (symbol table) interface.
  *
+ * @author DeepWalter
+ *
  * @param <K> the type of keys
  * @param <V> the type of values
+ *
+ * @see ST
+ * @see SequentialSearchST
  */
 public class SeparateChainingHashST<K extends Comparable<? super K>, V> implements ST<K, V>
 {
@@ -16,10 +21,13 @@ public class SeparateChainingHashST<K extends Comparable<? super K>, V> implemen
     /** Symbol table size. */
     private int size;
 
+    /** Default size of the hash table. */
+    private static final int DEFAULT_CAPACITY = 997;
+
     /**
      * Creates a hash table with the default size {@code 997}.
      */
-    public SeparateChainingHashST() { this(997); }
+    public SeparateChainingHashST() { this(DEFAULT_CAPACITY); }
 
     /**
      * Creates a hash table of size {@code hashSize}.
@@ -81,6 +89,9 @@ public class SeparateChainingHashST<K extends Comparable<? super K>, V> implemen
         size += (sts[i].size() - oldSizeOfi);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Iterable<K> keys()
     {
