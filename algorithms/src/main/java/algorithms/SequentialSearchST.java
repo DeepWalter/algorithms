@@ -156,4 +156,33 @@ public class SequentialSearchST<K, V> implements ST<K, V>
         }
         head = parent.next;
     }
+
+    /**
+     * Returns a Python dict-like string representation of this symbol table.
+     *
+     * @return a Python dict-like string representation of this symbol table
+     */
+    @Override
+    public String toString()
+    {
+        StringBuilder str = new StringBuilder();
+        str.append("{");
+
+        for (Node iter = head; iter != null; iter = iter.next) {
+            str.append(" ");
+            str.append(iter.key);
+            str.append(": ");
+            str.append(iter.val);
+            str.append(",");
+        }
+        // remove the last comma if there is one
+        int n = str.length();
+        if (n > 1) {
+            str.deleteCharAt(n-1);
+        }
+
+        str.append(" }");
+
+        return str.toString();
+    }
 }
