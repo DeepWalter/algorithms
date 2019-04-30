@@ -30,15 +30,28 @@ public class SequentialSearchST<K, V> implements ST<K, V>
         }
     }
 
-    @Override
-    public int size() { return size; }
-
     /**
-     * @param key the key to match
+     * {@inheritDoc}
      */
     @Override
-    public V get(K key)
+    public int size()
     {
+        return size;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param key the key to match
+     * @throws IllegalArgumentException if {@code key} is {@code null}
+     */
+    @Override
+    public V get(K key) throws IllegalArgumentException
+    {
+        if (key == null) {
+            throw new IllegalArgumentException("Argument to get() is null!");
+        }
+
         for (Node iter = head; iter != null; iter = iter.next) {
             if (iter.key.equals(key)) {
                 return iter.val;
@@ -48,8 +61,12 @@ public class SequentialSearchST<K, V> implements ST<K, V>
     }
 
     @Override
-    public void put(K key, V val)
+    public void put(K key, V val) throws IllegalArgumentException
     {
+        if (key == null) {
+            throw new IllegalArgumentException("First argument to put() is null!");
+        }
+
         for (Node iter = head; iter != null; iter = iter.next) {
             if (iter.key.equals(key)) {
                 if (iter.val != null && val == null) size--;   // lazy deletion
