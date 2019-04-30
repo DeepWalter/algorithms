@@ -11,7 +11,7 @@ package algorithms;
  * <p>
  * The union-find data type models connectivity among a set of <em>n</em>
  * objects. For simplicity, we represent each object as an integer in the
- * range [0, <em>n - 1</em>].
+ * range [0, <em>n-1</em>].
  * The <em>is-connected-to</em> is an equivalence relation (denoted as ~)
  * between two objects, namely it is:
  * <ul>
@@ -25,8 +25,8 @@ package algorithms;
  * Any two objects in the same equivalence class is connected. Hence an
  * equivalence class is also called a <em>connected component</em>, or simply
  * a <em>component</em>. Since there are at most <em>n</em> distinct components,
- * they can also be represented as integers from 0 to <em>n - 1</em>.
- * </p>
+ * they can also be represented as integers from 0 to <em>n-1</em>.
+ *
  */
 public interface UF
 {

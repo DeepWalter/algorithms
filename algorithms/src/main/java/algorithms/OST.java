@@ -16,7 +16,6 @@ package algorithms;
  *
  * <p>
  * This interface aims at efficient implementations of the {@code put} and {@code get} operations.
- * </p>
  *
  * @param <K> the type of keys
  * @param <V> the type of values
@@ -41,12 +40,10 @@ public interface OST<K extends Comparable<? super K>, V> extends ST<K, V>
      * The {@code rank} method is mainly used for determining where a new key fits in the order,
      * while {@code select} provides a quick access to the key at a given rank. Together, they
      * provide an array-like index system for keys in this ordered symbol table.
-     * </p>
      *
      * <p>
      * <strong>Note:</strong> when the symbol table is empty, {@code rank} will return {@code 0} on
      * any key.
-     * </p>
      *
      * @param key the key to match
      * @return the number of keys that are less than {@code key}
@@ -68,7 +65,6 @@ public interface OST<K extends Comparable<? super K>, V> extends ST<K, V>
      * The {@code rank} method is mainly used for determining where a new key fits in the order,
      * while {@code select} provides a quick access to the key at a given rank. Together, they
      * provide an array-like index system for keys in this ordered symbol table.
-     * </p>
      *
      * @param i the rank
      * @return the key with rank {@code i}
@@ -185,5 +181,8 @@ public interface OST<K extends Comparable<? super K>, V> extends ST<K, V>
      */
     Iterable<K> keys(K low, K high);
 
+    /**
+     * {@inheritDoc}
+     */
     default Iterable<K> keys() { return keys(min(), max()); }
 }

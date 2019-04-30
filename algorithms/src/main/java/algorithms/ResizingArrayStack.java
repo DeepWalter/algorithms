@@ -14,11 +14,11 @@ import java.util.NoSuchElementException;
  *   <li>when there is no room for new elements, we <em>double</em> the size of
  * the array.</li>
  *   <li>when the stack size is less than <em>a quarter</em> of the capacity,
- * we <em>half</em> the size of the array.
+ * we <em>half</em> the size of the array.</li>
  * </ul>
  * With this implementation the {@code ResizingArrayStack} never overflows and
  * never becomes less than a-quarter full.
- * </p>
+ *
  *
  * @param <E> the type of elements in this {@code ResizingArrayStack}
  *

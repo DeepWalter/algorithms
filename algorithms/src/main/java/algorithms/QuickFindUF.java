@@ -10,9 +10,9 @@ package algorithms;
  * In accordance with the specification of {@link UF} interface, the set of
  * <em>n</em> objects are represented as integers from 1 to <em>n - 1</em> and
  * each component is identified by an integer between 1 and <em>n - 1</em>.
- * </p>
  *
- * <p>The implementation of {@code QuickFindUF} uses an {@code int} array to
+ * <p>
+ * The implementation of {@code QuickFindUF} uses an {@code int} array to
  * store the <em>component identifier</em> of each object. The component
  * identifier of an object is the identifier of the component to which the
  * object belongs. Two objects are in the same component iff they have the same
@@ -30,7 +30,6 @@ package algorithms;
  * </ul>
  *
  * For more information, see Section 1.5 of <i>Algorithms, 4th Edition</i>.
- * </p>
  *
  * @author DeepWalter
  *

@@ -30,18 +30,16 @@ package algorithms;
  * {@code null} for keys not in the table, effectively associating the value {@code null} with every
  * key not in the table. This gives rise to lazy deletion for existing keys: just set their
  * corresponding values to {@code null}.
- * </p>
  *
  * <p>
  * For more information, see Section 3.1 of <em>Algorithms, 4th edition</em>.
- * </p>
  *
  * @param <K> the type of keys
  * @param <V> the type of values
  *
  * @author DeepWalter
  *
- * @see OrderedST
+ * @see OST
  */
 public interface ST<K, V>
 {

@@ -19,7 +19,7 @@ public class FixedCapacityStack<E> implements Stack<E>
      * Initializes a {@code FixedCapacityStack} with the given capacity.
      *
      * @param capacity capacity of this {@code FixedCapacityStack}
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException if {@code capacity <= 0}
      */
     @SuppressWarnings("unchecked")
     public FixedCapacityStack(int capacity) throws IllegalArgumentException
@@ -56,8 +56,6 @@ public class FixedCapacityStack<E> implements Stack<E>
 
     /**
      * Returns an iterator over elements of this {@code FixedCapacityStack}.
-     *
-     * @param <E> the type of elements in this {@code FixedCapacityStack}
      *
      * @return an {@code Iterator}
      */
