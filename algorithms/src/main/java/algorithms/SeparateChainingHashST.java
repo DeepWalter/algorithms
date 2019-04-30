@@ -17,10 +17,15 @@ public class SeparateChainingHashST<K extends Comparable<? super K>, V> implemen
     private int size;
 
     /**
-     * The default hash table size is set to {@code 997}.
+     * Creates a hash table with the default size {@code 997}.
      */
     public SeparateChainingHashST() { this(997); }
 
+    /**
+     * Creates a hash table of size {@code hashSize}.
+     *
+     * @param hashSize the size of the hash table
+     */
     @SuppressWarnings("unchecked")
     public SeparateChainingHashST(int hashSize)
     {
@@ -50,7 +55,7 @@ public class SeparateChainingHashST<K extends Comparable<? super K>, V> implemen
     }
 
     /**
-     * Returns the hash value of {@code key}.
+     * Returns the hash value of {@code key}. This value should be in {@code [0, hashSize)}.
      *
      * @param key the key to hash
      * @return the hash value of {@code key}
