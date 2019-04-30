@@ -4,10 +4,14 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * Linked-list implementation of the {@link ST} (symbol table) interface.
+ * Singly-linked list implementation of the {@link ST} (symbol table) interface.
+ *
+ * @author DeepWalter
  *
  * @param <K> the type of keys
  * @param <V> the type of values
+ *
+ * @see SeparateChainingHashST
  */
 public class SequentialSearchST<K, V> implements ST<K, V>
 {
