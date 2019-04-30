@@ -70,9 +70,10 @@ public class SeparateChainingHashST<K extends Comparable<? super K>, V> implemen
     public void put(K key, V val)
     {
         int i = hash(key);
-        int oldSize = sts[i].size();
+        int oldSizeOfi = sts[i].size();
+
         sts[i].put(key, val);
-        size += (sts[i].size() - oldSize);
+        size += (sts[i].size() - oldSizeOfi);
     }
 
     @Override
