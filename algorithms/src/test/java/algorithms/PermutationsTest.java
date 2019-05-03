@@ -2,6 +2,7 @@ package algorithms;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
@@ -34,11 +35,12 @@ public class PermutationsTest
     @Test
     public void testNext()
     {
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             assertArrayEquals(a, permutations[i]);
+            assertTrue(Permutations.hasNext(a));
             Permutations.next(a);
         }
-
+        assertArrayEquals(a, permutations[5]);
         assertFalse(Permutations.hasNext(a));
     }
 }
