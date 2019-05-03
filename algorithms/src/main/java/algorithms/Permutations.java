@@ -269,17 +269,123 @@ public final class Permutations
         };
     }
 
+    public static Iterable<int[]> permutations(int[] array)
+    {
+        return () -> new Iterator<int[]>() {
+            private final int N = array.length;
+            private int[] arrayCopy = Arrays.copyOf(array, array.length);
+            private int j;
+            private boolean isFirst;    // whether to fetch the first permutation
+
+            {
+                Quick.sort(arrayCopy);
+                isFirst = true;
+            }
+
+            @Override
+            public boolean hasNext()
+            {
+                if (isFirst) {
+                    return true;
+                }
+
+                j = N - 2;
+                while (j >= 0 && arrayCopy[j] >= arrayCopy[j+1]) {
+                    j--;
+                }
+
+                return j >= 0;
+            }
+
+            @Override
+            public int[] next() throws NoSuchElementException
+            {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+
+                if (isFirst) {
+                    isFirst = false;
+                    return arrayCopy;
+                }
+
+                // Find the first l from right side s.t. array[l] > array[j].
+                int l = N - 1;
+                while (arrayCopy[l] <= arrayCopy[j]) {
+                    l--;
+                }
+
+                // at this point l >= j+1
+                swap(arrayCopy, j, l);
+                reverse(arrayCopy, j+1, N - 1);
+
+                return arrayCopy;
+            }
+        };
+    }
+
+    public static Iterable<double[]> permutations(double[] array)
+    {
+        return () -> new Iterator<double[]>() {
+            private final int N = array.length;
+            private double[] arrayCopy = Arrays.copyOf(array, array.length);
+            private int j;
+            private boolean isFirst;    // whether to fetch the first permutation
+
+            {
+                Quick.sort(arrayCopy);
+                isFirst = true;
+            }
+
+            @Override
+            public boolean hasNext()
+            {
+                if (isFirst) {
+                    return true;
+                }
+
+                j = N - 2;
+                while (j >= 0 && arrayCopy[j] >= arrayCopy[j+1]) {
+                    j--;
+                }
+
+                return j >= 0;
+            }
+
+            @Override
+            public double[] next() throws NoSuchElementException
+            {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+
+                if (isFirst) {
+                    isFirst = false;
+                    return arrayCopy;
+                }
+
+                // Find the first l from right side s.t. array[l] > array[j].
+                int l = N - 1;
+                while (arrayCopy[l] <= arrayCopy[j]) {
+                    l--;
+                }
+
+                // at this point l >= j+1
+                swap(arrayCopy, j, l);
+                reverse(arrayCopy, j+1, N - 1);
+
+                return arrayCopy;
+            }
+        };
+    }
+
+
     // test
     public static void main(String[] args)
     {
-        int N = 4;
-        Integer[] array = new Integer[N];
-        array[0] = 1;
-        array[1] = 3;
-        array[2] = 2;
-        array[3] = 4;
+        int[] array = new int[] {1, 4, 3, 2};
 
-        for (Integer[] arr: permutations(array)) {
+        for (int[] arr: permutations(array)) {
             System.out.println(Arrays.toString(arr));
         }
 
