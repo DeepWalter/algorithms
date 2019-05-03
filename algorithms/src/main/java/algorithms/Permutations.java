@@ -1,6 +1,8 @@
 package algorithms;
 
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Alogrithms for computing permutations.
@@ -212,19 +214,76 @@ public final class Permutations
         }
     }
 
+    public static <T extends Comparable<? super T>> Iterable<T[]> permutations(T[] array)
+    {
+        return () -> new Iterator<T[]>() {
+            private final int N = array.length;
+            private T[] arrayCopy = Arrays.copyOf(array, array.length);
+            private int j;
+            private boolean isFirst;    // whether to fetch the first permutation
+
+            {
+                Quick.sort(arrayCopy);
+                isFirst = true;
+            }
+
+            @Override
+            public boolean hasNext()
+            {
+                if (isFirst) {
+                    return true;
+                }
+
+                j = N - 2;
+                while (j >= 0 && arrayCopy[j].compareTo(arrayCopy[j+1]) >= 0) {
+                    j--;
+                }
+
+                return j >= 0;
+            }
+
+            @Override
+            public T[] next() throws NoSuchElementException
+            {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+
+                if (isFirst) {
+                    isFirst = false;
+                    return arrayCopy;
+                }
+
+                // Find the first l from right side s.t. array[l] > array[j].
+                int l = N - 1;
+                while (arrayCopy[l].compareTo(arrayCopy[j]) <= 0) {
+                    l--;
+                }
+
+                // at this point l >= j+1
+                swap(arrayCopy, j, l);
+                reverse(arrayCopy, j+1, N - 1);
+
+                return arrayCopy;
+            }
+        };
+    }
+
     // test
     public static void main(String[] args)
     {
         int N = 4;
-        int[] array = new int[N];
-        for (int i = 0; i < N; i++) {
-            array[i] = i+1;
+        Integer[] array = new Integer[N];
+        array[0] = 1;
+        array[1] = 3;
+        array[2] = 2;
+        array[3] = 4;
+
+        for (Integer[] arr: permutations(array)) {
+            System.out.println(Arrays.toString(arr));
         }
 
+        System.out.println("Original array");
         System.out.println(Arrays.toString(array));
-        while (hasNext(array)) {
-            next(array);
-            System.out.println(Arrays.toString(array));
-        }
     }
 }
