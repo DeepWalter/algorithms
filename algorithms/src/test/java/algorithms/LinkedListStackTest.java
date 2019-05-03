@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.After;
 import org.junit.Before;
 
-public class LinkedListStackTests
+public class LinkedListStackTest
 {
     private Stack<String> stack;
 

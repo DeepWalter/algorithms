@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BinarySearchOSTTests
+public class BinarySearchOSTTest
 {
     private OST<String, String> ost;
 

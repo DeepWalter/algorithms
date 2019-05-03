@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 
 
-public class FixedCapacityStackTests
+public class FixedCapacityStackTest
 {
     @Test
     public void testPush()

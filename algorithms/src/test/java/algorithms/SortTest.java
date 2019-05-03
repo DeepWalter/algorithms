@@ -13,14 +13,14 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public class SortTests
+public class SortTest
 {
     private double[] arr;
     private static final long SEED = System.currentTimeMillis();
     private int size;
     private String alg;
 
-    public SortTests(String name, int N)
+    public SortTest(String name, int N)
     {
         alg = name;
         size = N;
