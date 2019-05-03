@@ -138,7 +138,8 @@ public class SequentialSearchST<K, V> implements ST<K, V>
             throw new IllegalArgumentException("Argument to delete() is null!");
         }
 
-        /* If we want to delete a node, we need access to the reference that points to it. That is,
+        /*
+         * If we want to delete a node, we need access to the reference that points to it. That is,
          * we need to find its parent node if the node to be deleted is not the first one. Instead
          * of treating the first node as a special case, we create a phony parent node for it. This
          * trick gives every node in the symbol table a parent node. Hence we can iterate through
