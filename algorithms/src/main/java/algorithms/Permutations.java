@@ -219,7 +219,7 @@ public final class Permutations
         return () -> new Iterator<T[]>() {
             private final int N = array.length;
             private T[] arrayCopy = Arrays.copyOf(array, array.length);
-            private int j;
+            private int j;  // largest index s.t. arrayCopy[j] < arrayCopy[j+1].
             private boolean isFirst;    // whether to fetch the first permutation
 
             {
@@ -234,6 +234,7 @@ public final class Permutations
                     return true;
                 }
 
+                // set j to the largest index s.t. arrayCopy[j] < arrayCopy[j+1] if there is any.
                 j = N - 2;
                 while (j >= 0 && arrayCopy[j].compareTo(arrayCopy[j+1]) >= 0) {
                     j--;
@@ -377,19 +378,5 @@ public final class Permutations
                 return arrayCopy;
             }
         };
-    }
-
-
-    // test
-    public static void main(String[] args)
-    {
-        int[] array = new int[] {1, 4, 3, 2};
-
-        for (int[] arr: permutations(array)) {
-            System.out.println(Arrays.toString(arr));
-        }
-
-        System.out.println("Original array");
-        System.out.println(Arrays.toString(array));
     }
 }
