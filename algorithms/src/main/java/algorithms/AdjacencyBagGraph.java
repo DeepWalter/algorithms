@@ -45,5 +45,21 @@ public class AdjacencyBagGraph implements Graph
         return edgeCount;
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param v the vertex to match
+     * @throws IllegalArgumentException unless {@code 0 <= v < countVertices()}
+     */
+    @Override
+    public Iterable<Integer> adjacentVerticesOf(int v) throws IllegalArgumentException
+    {
+        if (v < 0 || v >= vertexCount) {
+            throw new IllegalArgumentException("Argument to adjacentVerticesOf() must be in [0, "
+                + vertexCount + "), but " + v + " is given!");
+        }
+
+        return adjBags[v];
+    }
 
 }
