@@ -244,7 +244,7 @@ public final class Permutations
             }
 
             @Override
-            public T[] next() throws NoSuchElementException
+            public T[] next()
             {
                 if (!hasNext()) {
                     throw new NoSuchElementException();
@@ -299,7 +299,7 @@ public final class Permutations
             }
 
             @Override
-            public int[] next() throws NoSuchElementException
+            public int[] next()
             {
                 if (!hasNext()) {
                     throw new NoSuchElementException();
@@ -354,7 +354,7 @@ public final class Permutations
             }
 
             @Override
-            public double[] next() throws NoSuchElementException
+            public double[] next()
             {
                 if (!hasNext()) {
                     throw new NoSuchElementException();

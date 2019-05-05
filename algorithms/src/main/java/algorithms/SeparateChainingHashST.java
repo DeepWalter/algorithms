@@ -16,8 +16,10 @@ public class SeparateChainingHashST<K extends Comparable<? super K>, V> implemen
 {
     /** Symbol tables for storing key-value pairs. */
     private SequentialSearchST<K, V>[] sts;
+
     /** Hash table size. */
     private int hashSize;
+
     /** Symbol table size. */
     private int size;
 

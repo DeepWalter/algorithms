@@ -25,7 +25,7 @@ public class LinkedListQueue<E> implements Queue<E>
     public int size() { return N; }
 
     @Override
-    public E dequeue() throws NoSuchElementException
+    public E dequeue()
     {
         if(isEmpty()) throw new NoSuchElementException();
 
@@ -61,7 +61,7 @@ public class LinkedListQueue<E> implements Queue<E>
 
             public boolean hasNext() { return iter != null; }
 
-            public E next() throws NoSuchElementException
+            public E next()
             {
                 if (!hasNext()) throw new NoSuchElementException();
 

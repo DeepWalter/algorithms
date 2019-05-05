@@ -22,7 +22,7 @@ public class FixedCapacityStack<E> implements Stack<E>
      * @throws IllegalArgumentException if {@code capacity <= 0}
      */
     @SuppressWarnings("unchecked")
-    public FixedCapacityStack(int capacity) throws IllegalArgumentException
+    public FixedCapacityStack(int capacity)
     {
         if (capacity <= 0) throw new IllegalArgumentException(
             "Capacity must be positive: " + capacity);
@@ -46,8 +46,13 @@ public class FixedCapacityStack<E> implements Stack<E>
         a[N++] = elem;
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @throws NoSuchElementException if this stack is empty
+     */
     @Override
-    public E pop() throws NoSuchElementException
+    public E pop()
     {
         if (isEmpty()) throw new NoSuchElementException("Can not pop an empty stack!");
 
@@ -67,7 +72,7 @@ public class FixedCapacityStack<E> implements Stack<E>
 
             public boolean hasNext() { return id != 0; }
 
-            public E next() throws NoSuchElementException
+            public E next()
             {
                 if (!hasNext()) throw new NoSuchElementException();
                 return a[--id];

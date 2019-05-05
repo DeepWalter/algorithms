@@ -71,7 +71,7 @@ public class QuickFindUF implements UF
      * @throws IllegalArgumentException unless {@code 0 <= p < n}
      */
     @Override
-    public int find(int p) throws IllegalArgumentException
+    public int find(int p)
     {
         int n = id.length;
         if (p < 0 || p >= n) throw new IllegalArgumentException(
@@ -91,7 +91,7 @@ public class QuickFindUF implements UF
      * {@code 0 <= q < n}
      */
     @Override
-    public void union(int p, int q) throws IllegalArgumentException
+    public void union(int p, int q)
     {
         int pId = find(p);
         int qId = find(q);

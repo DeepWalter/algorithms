@@ -74,7 +74,7 @@ public class BinarySearchOST<K extends Comparable<? super K>, V> implements OST<
      * @throws NoSuchElementException unless {@code 0 <= k < N}
      */
     @Override
-    public K select(int i) throws NoSuchElementException
+    public K select(int i)
     {
         if (i < 0 || i >= N) throw new NoSuchElementException();
 

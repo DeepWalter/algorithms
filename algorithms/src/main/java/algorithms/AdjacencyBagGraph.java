@@ -8,18 +8,25 @@ public class AdjacencyBagGraph implements Graph
 {
     /** Number of vertices in this graph. */
     private final int vertexCount;
+
     /** Number of edges in this graph. */
     private int edgeCount;
+
     /** Adjacency bags. */
     private Bag<Integer>[] adjBags;
 
     /**
      * Initialize a graph with {@code v} vertices.
      * @param v number of total vertices
+     * @throws IllegalArgumentException if {@code v < 0}
      */
     @SuppressWarnings("unchecked")
     public AdjacencyBagGraph(int v)
     {
+        if (v < 0) {
+            throw new IllegalArgumentException("Illegal number of vertices: " + v);
+        }
+
         vertexCount = v;
         adjBags = new Bag[v];
         for (int i = 0; i < v; i++) {
@@ -55,7 +62,7 @@ public class AdjacencyBagGraph implements Graph
      * {@code 0 <= w < countVertices()}
      */
     @Override
-    public void addEdge(int v, int w) throws IllegalArgumentException
+    public void addEdge(int v, int w)
     {
         vertexCheck(v);
         vertexCheck(w);
@@ -72,7 +79,7 @@ public class AdjacencyBagGraph implements Graph
      * @throws IllegalArgumentException unless {@code 0 <= v < countVertices()}
      */
     @Override
-    public Iterable<Integer> adjacentVerticesOf(int v) throws IllegalArgumentException
+    public Iterable<Integer> adjacentVerticesOf(int v)
     {
         vertexCheck(v);
 
@@ -84,7 +91,7 @@ public class AdjacencyBagGraph implements Graph
      * @param v the vertex to check
      * @throws IllegalArgumentException unless {@code 0 <= v < countVertices()}
      */
-    private void vertexCheck(int v) throws IllegalArgumentException
+    private void vertexCheck(int v)
     {
         if (v < 0 || v >= vertexCount) {
             throw new IllegalArgumentException(illegalVertexMsg(v));

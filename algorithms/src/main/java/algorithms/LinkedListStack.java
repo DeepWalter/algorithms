@@ -26,6 +26,11 @@ public class LinkedListStack<E> implements Stack<E>
     @Override
     public int size() { return N; }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @throws NoSuchElementException if this stack is empty
+     */
     @Override
     public E pop()
     {
@@ -58,7 +63,7 @@ public class LinkedListStack<E> implements Stack<E>
 
             public boolean hasNext() { return iter != null; }
 
-            public E next() throws NoSuchElementException
+            public E next()
             {
                 if (!hasNext()) throw new NoSuchElementException();
 

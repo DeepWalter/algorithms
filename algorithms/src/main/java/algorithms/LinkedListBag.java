@@ -61,7 +61,7 @@ public class LinkedListBag<E> implements Bag<E>
             }
 
             @Override
-            public E next() throws NoSuchElementException
+            public E next()
             {
                 if (!hasNext()) {
                     throw new NoSuchElementException();

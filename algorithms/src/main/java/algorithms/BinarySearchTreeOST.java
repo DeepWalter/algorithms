@@ -285,8 +285,9 @@ public class BinarySearchTreeOST<K extends Comparable<? super K>, V> implements 
      * @param i the rank
      * @param node the root of the subtree
      * @return the key with rank {@code i} in the subtree rooted at {@code node}
+     * @throws NoSuchElementException unless {@code 0 <= i < size(node)}
      */
-    private K select(int i, Node node) throws NoSuchElementException
+    private K select(int i, Node node)
     {
         // if subtree is empty or i is out of range
         if (i < 0 || i >= size(node)) throw new NoSuchElementException();

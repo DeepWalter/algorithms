@@ -47,7 +47,7 @@ public class ResizingArrayStack<E> implements Stack<E>
      * @param capacity initial capacity of the array
      */
     @SuppressWarnings("unchecked")
-    public ResizingArrayStack(int capacity) throws IllegalArgumentException
+    public ResizingArrayStack(int capacity)
     {
         if (capacity <= 0) throw new IllegalArgumentException(
             "Capacity must be positive: " + capacity);
@@ -67,8 +67,13 @@ public class ResizingArrayStack<E> implements Stack<E>
         array[N++] = elem;
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @throws NoSuchElementException if this stack is empty
+     */
     @Override
-    public E pop() throws NoSuchElementException
+    public E pop()
     {
         if (N == 0) throw new NoSuchElementException(
             "Can not pop an empty ResizingArrayStack!");
@@ -84,8 +89,9 @@ public class ResizingArrayStack<E> implements Stack<E>
      * Resize the array into the given capacity.
      *
      * @param capacity length of the target array
+     * @throws IllegalArgumentException if {@code capacity <= 0}
      */
-    private void resize(int capacity) throws IllegalArgumentException
+    private void resize(int capacity)
     {
         if (capacity <= 0) throw new IllegalArgumentException(
             "Capacity must be positive:" + capacity);
@@ -107,7 +113,7 @@ public class ResizingArrayStack<E> implements Stack<E>
 
             public boolean hasNext() { return id > 0; }
 
-            public E next() throws NoSuchElementException
+            public E next()
             {
                 if (!hasNext()) throw new NoSuchElementException();
 

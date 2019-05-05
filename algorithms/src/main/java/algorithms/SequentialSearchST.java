@@ -50,7 +50,7 @@ public class SequentialSearchST<K, V> implements ST<K, V>
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
     @Override
-    public V get(K key) throws IllegalArgumentException
+    public V get(K key)
     {
         if (key == null) {
             throw new IllegalArgumentException("Argument to get() is null!");
@@ -70,7 +70,7 @@ public class SequentialSearchST<K, V> implements ST<K, V>
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
     @Override
-    public void put(K key, V val) throws IllegalArgumentException
+    public void put(K key, V val)
     {
         if (key == null) {
             throw new IllegalArgumentException("First argument to put() is null!");
@@ -108,7 +108,7 @@ public class SequentialSearchST<K, V> implements ST<K, V>
             }
 
             @Override
-            public K next() throws NoSuchElementException
+            public K next()
             {
                 if (!hasNext()) throw new NoSuchElementException();
 
@@ -132,7 +132,7 @@ public class SequentialSearchST<K, V> implements ST<K, V>
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
     @Override
-    public void delete(K key) throws IllegalArgumentException
+    public void delete(K key)
     {
         if (key == null) {
             throw new IllegalArgumentException("Argument to delete() is null!");
