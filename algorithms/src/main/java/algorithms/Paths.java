@@ -6,12 +6,11 @@ package algorithms;
  * <ol>
  *   <li>{@link #hasPathTo()}: determine if there is path from the given source to the target
  * vertex;</li>
- *   <li>{@link #pathTo()}: find a such path.</li>
+ *   <li>{@link #pathTo()}: find such a path.</li>
  * </ol>
  *
  * <p>
- * The source can be a single vertex or a collection of vertices. It should be specified at
- * initialization along with the graph.
+ * The source is a single vertex which should be specified at initialization along with the graph.
  */
 public interface Paths
 {
