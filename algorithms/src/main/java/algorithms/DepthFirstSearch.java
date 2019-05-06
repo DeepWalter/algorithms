@@ -24,9 +24,8 @@ public class DepthFirstSearch implements Search
      */
     public DepthFirstSearch(Graph graph, int s)
     {
-        vertexCheck(s);
-
         vertexCount = graph.countVertices();
+        vertexCheck(s);
         marked = new boolean[vertexCount];
 
         depthFirstSearch(graph, s);
