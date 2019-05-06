@@ -2,7 +2,16 @@ package algorithms;
 
 
 /**
- * An interface for path-finding in graphs.
+ * An interface for path-finding in graphs. This interface provides two methods:
+ * <ol>
+ *   <li>{@link #hasPathTo()}: determine if there is path from the given source to the target
+ * vertex;</li>
+ *   <li>{@link #pathTo()}: find a such path.</li>
+ * </ol>
+ *
+ * <p>
+ * The source can be a single vertex or a collection of vertices. It should be specified at
+ * initialization along with the graph.
  */
 public interface Paths
 {
@@ -14,4 +23,14 @@ public interface Paths
      * {@code false} otherwise
      */
     boolean hasPathTo(int v);
+
+    /**
+     * Returns a path from the given source to the target vertex {@code v}, or {@code null} if there
+     * is none.
+     *
+     * @param v the target vertex
+     * @return a path from the given source to the target vertex {@code v}, or {@code null} if there
+     * is none
+     */
+    Iterable<Integer> pathTo(int v);
 }
