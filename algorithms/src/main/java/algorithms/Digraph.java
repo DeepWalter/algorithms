@@ -4,21 +4,21 @@ package algorithms;
 /**
  * A directed graph.
  */
-public interface Digraph
+public interface Digraph extends Graph
 {
-    /**
-     * Returns the number of vertices in this digraph.
-     *
-     * @return the number of vertices in this digraph
-     */
-    int countVertices();
+    // /**
+    //  * Returns the number of vertices in this digraph.
+    //  *
+    //  * @return the number of vertices in this digraph
+    //  */
+    // int countVertices();
 
-    /**
-     * Returns the number of edges in this digraph.
-     *
-     * @return the number of edges in this digraph
-     */
-    int countEdges();
+    // /**
+    //  * Returns the number of edges in this digraph.
+    //  *
+    //  * @return the number of edges in this digraph
+    //  */
+    // int countEdges();
 
     /**
      * Adds an edge {@code v -> w} into this digraph.
