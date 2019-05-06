@@ -19,6 +19,32 @@ public class DepthFirstPaths implements Paths
     private final int vertexCount;
 
     /**
+     * Initializes the search process with the graph and the given source.
+     *
+     * @param graph the graph to search
+     * @param s the source vertex
+     */
+    public DepthFirstPaths(Graph graph, int s)
+    {
+        vertexCount = graph.countVertices();
+        vertexCheck(s);
+        source = s;
+
+        depthFirstSearch(graph, source);
+    }
+
+    private void depthFirstSearch(Graph graph, int v)
+    {
+        marked[v] = true;
+        for (int w: graph.adjacentVerticesOf(v)) {
+            if (!marked[w]) {
+                edgeTo[w] = v;
+                depthFirstSearch(graph, w);
+            }
+        }
+    }
+
+    /**
      * {@inheritDoc}
      *
      * @param v the target vertex
