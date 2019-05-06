@@ -35,7 +35,7 @@ public class DepthFirstSearch implements Search
     {
         marked[s] = true;
         count++;
-        for (int v: graph.adjacentVerticesOf(s)) {
+        for (int v: graph.adjacentVerticesOf(s)) {  // s -> v when graph is directed
             if (!marked[v]) {
                 depthFirstSearch(graph, v);
             }

@@ -29,10 +29,10 @@ public interface Graph
     void addEdge(int v, int w);
 
     /**
-     * Returns an iterable object over all vertices connecting to {@code v}.
+     * Returns an iterable object over all vertices adjacent to {@code v}.
      *
      * @param v the vertex to match
-     * @return an iterable object over all vertices connecting to {@code v}
+     * @return an iterable object over all vertices adjacent to {@code v}
      */
     Iterable<Integer> adjacentVerticesOf(int v);
 }

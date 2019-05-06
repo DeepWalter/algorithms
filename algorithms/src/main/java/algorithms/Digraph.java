@@ -32,6 +32,10 @@ public interface Digraph extends Graph
      * Returns an iterable object over all vertices connecting to {@code v} by edges pointing from
      * {@code v}.
      *
+     * <p>
+     * In other words, this method returns an iterable object over all vertices {@code w}, such that
+     * there is an edge {@code v -> w} in this digraph.
+     *
      * @param v the vertex to match
      * @return an iterable object over all vertices connecting to {@code v} by edges pointing from
      * {@code v}
