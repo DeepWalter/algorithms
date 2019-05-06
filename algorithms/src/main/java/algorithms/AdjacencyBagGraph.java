@@ -2,7 +2,7 @@ package algorithms;
 
 
 /**
- * A adjacency bag implementation of the {@link Graph} interface.
+ * An adjacency bag implementation of the {@link Graph} interface.
  */
 public class AdjacencyBagGraph implements Graph
 {
@@ -58,8 +58,7 @@ public class AdjacencyBagGraph implements Graph
      *
      * @param v vertex of the edge
      * @param w vertex of the edge
-     * @throws IllegalArgumentException unless {@code 0 <= v < countVertices()} and
-     * {@code 0 <= w < countVertices()}
+     * @throws IllegalArgumentException unless {@code 0 <= v, w < countVertices()}
      */
     @Override
     public void addEdge(int v, int w)
@@ -88,6 +87,7 @@ public class AdjacencyBagGraph implements Graph
 
     /**
      * Checks if the given vertex is in this graph. If not, throws an appropriate runtime exception.
+     *
      * @param v the vertex to check
      * @throws IllegalArgumentException unless {@code 0 <= v < countVertices()}
      */
