@@ -21,16 +21,18 @@ public interface Graph
     int countEdges();
 
     /**
-     * Adds an edge with vertices {@code v} and {@code w} into this graph
+     * Adds an edge {@code v - w} into this graph.
+     *
      * @param v vertex of the edge
      * @param w vertex of the edge
      */
     void addEdge(int v, int w);
 
     /**
-     * Returns an iterable object over all adjacent vertices to {@code v}.
+     * Returns an iterable object over all vertices connecting to {@code v}.
+     *
      * @param v the vertex to match
-     * @return an iterable object over all adjacent vertices to {@code v}
+     * @return an iterable object over all vertices connecting to {@code v}
      */
     Iterable<Integer> adjacentVerticesOf(int v);
 }
