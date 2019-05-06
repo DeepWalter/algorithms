@@ -93,4 +93,34 @@ public class AdjacencyBagDigraph implements Digraph
     {
         return "Vertex: " + v + ", not in the range [0, " + vertexCount + ").";
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param v the vertex to match
+     * @throws IllegalArgumentException unless {@code 0 <= v < countVertices()}
+     */
+    @Override
+    public Iterable<Integer> adjacentVerticesOf(int v)
+    {
+        vertexCheck(v);
+
+        return adjBags[v];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Digraph reverse()
+    {
+        AdjacencyBagDigraph digraph = new AdjacencyBagDigraph(vertexCount);
+        for (int v = 0; v < vertexCount; v++) {
+            for (int w: adjacentVerticesOf(v)) {
+                digraph.addEdge(w, v);
+            }
+        }
+
+        return digraph;
+    }
 }
