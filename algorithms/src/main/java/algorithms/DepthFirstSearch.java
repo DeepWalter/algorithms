@@ -16,31 +16,34 @@ public class DepthFirstSearch implements Search
     private final int vertexCount;
 
     /**
-     * Initializes the search process with the graph and the given source.
+     * Initializes the search process with the graph and the source.
      *
      * @param graph the graph to search
-     * @param source the source
-     * @throws IllegalArgumentException if the source vertex {@code s} is not in {@code graph}
+     * @param source the source vertex
+     * @throws IllegalArgumentException if the vertex {@code source} is not in {@code graph}
      */
     public DepthFirstSearch(Graph graph, int source)
     {
         vertexCount = graph.countVertices();
-        vertexCheck(source);
         marked = new boolean[vertexCount];
+
+        vertexCheck(source);
 
         depthFirstSearch(graph, source);
     }
 
     /**
-     * Initializes the search process with the graph and the given source.
+     * Initializes the search process with the graph and the given sources.
      *
      * @param graph the graph to search
-     * @param sources the source
+     * @param sources the source vertices
      * @throws IllegalArgumentException if any vertex in the {@code sources} is not in {@code graph}
      */
     public DepthFirstSearch(Graph graph, Iterable<Integer> sources)
     {
         vertexCount = graph.countVertices();
+        marked = new boolean[vertexCount];
+
         for (int s: sources) {
             vertexCheck(s);
             if (!marked(s)) {
@@ -50,15 +53,17 @@ public class DepthFirstSearch implements Search
     }
 
     /**
-     * Initializes the search process with the graph and the given source.
+     * Initializes the search process with the graph and the given sources.
      *
      * @param graph the graph to search
-     * @param sources the source
+     * @param sources the source vertices
      * @throws IllegalArgumentException if any vertex in the {@code sources} is not in {@code graph}
      */
     public DepthFirstSearch(Graph graph, int[] sources)
     {
         vertexCount = graph.countVertices();
+        marked = new boolean[vertexCount];
+
         for (int s: sources) {
             vertexCheck(s);
             if (!marked(s)) {
