@@ -6,7 +6,7 @@ package algorithms;
  */
 public class DepthFirstPaths implements Paths
 {
-    /** An array recording the info whether a vertex is visited. */
+    /** An array recording the info whether each vertex is visited. */
     private boolean[] marked;
 
     /** An array recording the last vertex on known path to this vertex. */

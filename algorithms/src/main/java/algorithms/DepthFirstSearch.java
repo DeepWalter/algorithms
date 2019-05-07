@@ -6,7 +6,7 @@ package algorithms;
  */
 public class DepthFirstSearch implements Search
 {
-    /** An array recording the info whether a vertex is visited. */
+    /** An array recording the info whether each vertex is visited. */
     private boolean[] marked;
 
     /** Number of vertices visited. */
