@@ -25,6 +25,7 @@ public class BreadthFirstSearch implements Search
     public BreadthFirstSearch(Graph graph, int source)
     {
         vertexCount = graph.countVertices();
+        marked = new boolean[vertexCount];
         Queue<Integer> queue = new LinkedListQueue<>();
 
         vertexCheck(source);
@@ -45,6 +46,7 @@ public class BreadthFirstSearch implements Search
     public BreadthFirstSearch(Graph graph, Iterable<Integer> sources)
     {
         vertexCount = graph.countVertices();
+        marked = new boolean[vertexCount];
         Queue<Integer> queue = new LinkedListQueue<>();
 
         for (int s: sources) {
@@ -69,6 +71,7 @@ public class BreadthFirstSearch implements Search
     public BreadthFirstSearch(Graph graph, int[] sources)
     {
         vertexCount = graph.countVertices();
+        marked = new boolean[vertexCount];
         Queue<Integer> queue = new LinkedListQueue<>();
 
         for (int s: sources) {
