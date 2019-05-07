@@ -19,18 +19,55 @@ public class DepthFirstSearch implements Search
      * Initializes the search process with the graph and the given source.
      *
      * @param graph the graph to search
-     * @param s the source
+     * @param source the source
      * @throws IllegalArgumentException if the source vertex {@code s} is not in {@code graph}
      */
-    public DepthFirstSearch(Graph graph, int s)
+    public DepthFirstSearch(Graph graph, int source)
     {
         vertexCount = graph.countVertices();
-        vertexCheck(s);
+        vertexCheck(source);
         marked = new boolean[vertexCount];
 
-        depthFirstSearch(graph, s);
+        depthFirstSearch(graph, source);
     }
 
+    /**
+     * Initializes the search process with the graph and the given source.
+     *
+     * @param graph the graph to search
+     * @param sources the source
+     * @throws IllegalArgumentException if any vertex in the {@code sources} is not in {@code graph}
+     */
+    public DepthFirstSearch(Graph graph, Iterable<Integer> sources)
+    {
+        vertexCount = graph.countVertices();
+        for (int s: sources) {
+            vertexCheck(s);
+            if (!marked(s)) {
+                depthFirstSearch(graph, s);
+            }
+        }
+    }
+
+    /**
+     * Initializes the search process with the graph and the given source.
+     *
+     * @param graph the graph to search
+     * @param sources the source
+     * @throws IllegalArgumentException if any vertex in the {@code sources} is not in {@code graph}
+     */
+    public DepthFirstSearch(Graph graph, int[] sources)
+    {
+        vertexCount = graph.countVertices();
+        for (int s: sources) {
+            vertexCheck(s);
+            if (!marked(s)) {
+                depthFirstSearch(graph, s);
+            }
+        }
+    }
+
+    /* Depth-first search from the source s. */
     private void depthFirstSearch(Graph graph, int s)
     {
         marked[s] = true;
@@ -70,7 +107,7 @@ public class DepthFirstSearch implements Search
      * exception.
      *
      * @param v the vertex to check
-     * @throws IllegalArgumentException unless {@code 0 <= v < countVertices()}
+     * @throws IllegalArgumentException if vertex {@code v} is not in the graph
      */
     private void vertexCheck(int v)
     {
