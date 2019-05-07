@@ -29,6 +29,8 @@ public class DepthFirstPaths implements Paths
         vertexCount = graph.countVertices();
         vertexCheck(s);
         source = s;
+        marked = new boolean[vertexCount];
+        edgeTo = new int[vertexCount];
 
         depthFirstSearch(graph, source);
     }
