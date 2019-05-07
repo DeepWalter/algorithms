@@ -16,6 +16,94 @@ public class BreadthFirstSearch implements Search
     private final int vertexCount;
 
     /**
+     * Initializes the search process with the graph and the source.
+     *
+     * @param graph the graph to search
+     * @param source the source vertex
+     * @throws IllegalArgumentException if the vertex {@code source} is not in {@code graph}
+     */
+    public BreadthFirstSearch(Graph graph, int source)
+    {
+        vertexCount = graph.countVertices();
+        Queue<Integer> queue = new LinkedListQueue<>();
+
+        vertexCheck(source);
+        marked[source] = true;
+        count++;
+        queue.enqueue(source);
+
+        breadthFirstSearch(graph, queue);
+    }
+
+    /**
+     * Initializes the search process with the graph and the sources.
+     *
+     * @param graph the graph to search
+     * @param sources the source vertices
+     * @throws IllegalArgumentException if any vertex in the {@code sources} is not in {@code graph}
+     */
+    public BreadthFirstSearch(Graph graph, Iterable<Integer> sources)
+    {
+        vertexCount = graph.countVertices();
+        Queue<Integer> queue = new LinkedListQueue<>();
+
+        for (int s: sources) {
+            vertexCheck(s);
+            if (!marked[s]) {   // allow duplicate sources
+                marked[s] = true;
+                count++;
+                queue.enqueue(s);
+            }
+        }
+
+        breadthFirstSearch(graph, queue);
+    }
+
+    /**
+     * Initializes the search process with the graph and the sources.
+     *
+     * @param graph the graph to search
+     * @param sources the source vertices
+     * @throws IllegalArgumentException if any vertex in the {@code sources} is not in {@code graph}
+     */
+    public BreadthFirstSearch(Graph graph, int[] sources)
+    {
+        vertexCount = graph.countVertices();
+        Queue<Integer> queue = new LinkedListQueue<>();
+
+        for (int s: sources) {
+            vertexCheck(s);
+            if (!marked[s]) {   // allow duplicate sources
+                marked[s] = true;
+                count++;
+                queue.enqueue(s);
+            }
+        }
+
+        breadthFirstSearch(graph, queue);
+    }
+
+
+    /**
+     *
+     * @param graph the graph to search
+     * @param queue a queue that stores most recently processed vertices
+     */
+    private void breadthFirstSearch(Graph graph, Queue<Integer> queue)
+    {
+        while (!queue.isEmpty()) {
+            int s = queue.dequeue();
+            for (int v: graph.adjacentVerticesOf(s)) {
+                if (!marked[v]) {
+                    marked[v] = true;
+                    count++;
+                    queue.enqueue(v);
+                }
+            }
+        }
+    }
+
+    /**
      * {@inheritDoc}
      *
      * @param v the target vertex
@@ -24,9 +112,18 @@ public class BreadthFirstSearch implements Search
     @Override
     public boolean marked(int v)
     {
-    vertexCheck(v);
+        vertexCheck(v);
 
-    return marked[v];
+        return marked[v];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int count()
+    {
+        return count;
     }
 
     /**
