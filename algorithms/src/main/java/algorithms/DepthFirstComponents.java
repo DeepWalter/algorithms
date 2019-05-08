@@ -4,16 +4,43 @@ package algorithms;
 public class DepthFirstComponents implements Components
 {
     /** An array recording the info whether each vertex is visited. */
-    private int[] marked;
+    private boolean[] marked;
 
     /** Identifier of each vertex. */
     private int[] ids;
 
-    /** Currently availabel identifier. */
-    private int id;
+    /** Currently availabel identifier (starting with 0). */
+    private int id = 0;
 
     /** Number of vertices in the graph to be searched. */
     private final int vertexCount;
+
+
+    public DepthFirstComponents(Graph graph)
+    {
+        vertexCount = graph.countVertices();
+        marked = new boolean[vertexCount];
+        ids = new int[vertexCount];
+
+        for (int v = 0; v < vertexCount; v++) {
+            if (!marked[v]) {
+                depthFirstSearch(graph, v, id++);
+            }
+        }
+    }
+
+    /* Find all vertices that are reachable from v and label them as id. */
+    private void depthFirstSearch(Graph graph, int v, int id)
+    {
+        marked[v] = true;
+        ids[v] = id;
+
+        for (int w: graph.adjacentVerticesOf(v)) {
+            if (!marked[w]) {
+                depthFirstSearch(graph, w, id);
+            }
+        }
+    }
 
     /**
      * {@inheritDoc}
