@@ -9,7 +9,7 @@ public class DepthFirstComponents implements Components
     /** Identifier of each vertex. */
     private int[] ids;
 
-    /** Currently availabel identifier (starting with 0). */
+    /** Currently availabel identifier (start with 0). */
     private int id = 0;
 
     /** Number of vertices in the graph to be searched. */
@@ -24,20 +24,21 @@ public class DepthFirstComponents implements Components
 
         for (int v = 0; v < vertexCount; v++) {
             if (!marked[v]) {
-                depthFirstSearch(graph, v, id++);
+                depthFirstSearch(graph, v);
+                id++;
             }
         }
     }
 
     /* Find all vertices that are reachable from v and label them as id. */
-    private void depthFirstSearch(Graph graph, int v, int id)
+    private void depthFirstSearch(Graph graph, int v)
     {
         marked[v] = true;
         ids[v] = id;
 
         for (int w: graph.adjacentVerticesOf(v)) {
             if (!marked[w]) {
-                depthFirstSearch(graph, w, id);
+                depthFirstSearch(graph, w);
             }
         }
     }
