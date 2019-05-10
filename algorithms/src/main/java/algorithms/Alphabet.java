@@ -3,7 +3,10 @@ package algorithms;
 
 public class Alphabet
 {
+    /** Number of characters in this alphabet. */
     private final int RADIX;
+
+    /** Array holding the characters in this alphabet. */
     private final char[] characters;
 
     /**
@@ -55,5 +58,58 @@ public class Alphabet
         }
 
         return i;
+    }
+
+    /**
+     * Converts {@code index} to corresponding alphabet character. Throws
+     * {@link IllegalArgumentException} if {@code index} is not in range.
+     *
+     * @param index the index to match
+     * @return the alphabet character corresponding to {@code index}
+     * @throws IllegalArgumentException unless {@code 0 <= index < radix()}
+     */
+    public char toChar(int index)
+    {
+        rangeCheck(index);
+
+        return characters[index];
+    }
+
+    /**
+     * Checks if {@code c} is contained in this alphabet.
+     *
+     * @param c the character to match
+     * @return {@code true} if {@code c} is contained in this alphabet; {@code false} otherwise
+     */
+    public boolean contains(char c)
+    {
+        for (int i = 0; i < RADIX; i++) {
+            if (characters[i] == c) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+
+    /**
+     * Checks if {@code index} is in range.
+     *
+     * @param index the index to be checked
+     * @throws IllegalArgumentException unless {@code 0 <= index < radix()}
+     */
+    private void rangeCheck(int index)
+    {
+        if (index < 0 || index >= RADIX) {
+            throw new IllegalArgumentException(outOfRangeMsg(index));
+        }
+    }
+
+    // A detail message.
+    private String outOfRangeMsg(int index)
+    {
+        return "Index " + index + " is not in range [0, " + RADIX + ").";
     }
 }
