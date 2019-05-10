@@ -92,6 +92,58 @@ public class Alphabet
         return false;
     }
 
+    /**
+     * Returns the index of {@code c} in this alphabet, or {@code -1} if {@code c} is not in this
+     * alphabet.
+     *
+     * @param c the character to match
+     * @return the index of {@code c} in this alphabet, or {@code -1} if {@code c} is not in this
+     * alphabet
+     */
+    public int toIndex(char c)
+    {
+        for (int i = 0; i < RADIX; i++) {
+            if (characters[i] == c) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    /**
+     * Converts {@code s} to base-radix integer.
+     *
+     * @param s the string to be converted
+     * @return an array of integers with each entry being the digit of the base-radix integer
+     */
+    public int[] toIndices(String s)
+    {
+        int n = s.length();
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++) {
+            array[i] = toIndex(s.charAt(i));
+        }
+
+        return array;
+    }
+
+    /**
+     * Converts base-radix integer to string over this alphabet.
+     *
+     * @param indices the base-radix integer
+     * @return the string
+     */
+    public String toChars(int[] indices)
+    {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < indices.length; i++) {
+            sb.append(toChar(indices[i]));
+        }
+
+        return sb.toString();
+    }
+
 
 
     /**
