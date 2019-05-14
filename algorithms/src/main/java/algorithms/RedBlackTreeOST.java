@@ -218,6 +218,9 @@ public class RedBlackTreeOST<K extends Comparable<? super K>, V> implements OST<
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public K select(int i) { return select(i, root); }
 
@@ -232,7 +235,9 @@ public class RedBlackTreeOST<K extends Comparable<? super K>, V> implements OST<
     private K select(int i, Node node)
     {
         // if subtree is empty or i is out of range
-        if (i < 0 || i >= size(node)) throw new NoSuchElementException();
+        if (i < 0 || i >= size(node)) {
+            throw new NoSuchElementException();
+        }
 
         int s = size(node.left);
         if (i == s) {
@@ -242,5 +247,37 @@ public class RedBlackTreeOST<K extends Comparable<? super K>, V> implements OST<
         } else {
             return select(i - s - 1, node.right);
         }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Iterable<K> keys(K low, K high)
+    {
+        Queue<K> q = new LinkedListQueue<>();
+        keys(low, high, root, q);
+
+        return q;
+    }
+
+    /**
+     * Collects all keys in {@code [low, high]} of the subtree rooted at {@code node} into the queue
+     * {@code q}.
+     *
+     * @param low low end of the interval
+     * @param high high end of the interval
+     * @param node the root of the subtree
+     * @param q the queue
+     */
+    private void keys(K low, K high, Node node, Queue<K> q)
+    {
+        if (node == null) return;   // sanity check
+
+        int cmplo = low.compareTo(node.key);
+        int cmphi = high.compareTo(node.key);
+        if (cmplo < 0) keys(low, high, node.left, q);
+        if (cmplo <= 0 && cmphi >= 0) q.enqueue(node.key);
+        if (cmphi > 0) keys(low, high, node.right, q);
     }
 }
